@@ -57,6 +57,11 @@
 		BE816DA0308D662D00918761 /* ente.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ente.h; sourceTree = "<group>"; };
 		BE816DA1308D663100918761 /* entidade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entidade.h; sourceTree = "<group>"; };
 		BE816DA2308D663700918761 /* entidade.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entidade.cpp; sourceTree = "<group>"; };
+		BEF727C7309128F0002ACA7D /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gerenciador_grafico.cpp; sourceTree = "<group>"; };
+		BEF727C930912BD6002ACA7D /* gerenciador_grafico.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gerenciador_grafico.h; sourceTree = "<group>"; };
+		BEF727CA30912BE2002ACA7D /* gerenciador_Colisoes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gerenciador_Colisoes.h; sourceTree = "<group>"; };
+		BEF727CB30912BF9002ACA7D /* gerenciador_Colisoes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gerenciador_Colisoes.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +78,15 @@
 			children = (
 				BE816D9F308D662400918761 /* ente.cpp */,
 				BE816DA0308D662D00918761 /* ente.h */,
+				BEF727C7309128F0002ACA7D /* stdafx.h */,
 				BE816DA1308D663100918761 /* entidade.h */,
 				BE816DA2308D663700918761 /* entidade.cpp */,
 				BE816D69308D633100918761 /* the last knight */,
 				BE816D7F308D649000918761 /* Frameworks */,
+				BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */,
+				BEF727C930912BD6002ACA7D /* gerenciador_grafico.h */,
+				BEF727CA30912BE2002ACA7D /* gerenciador_Colisoes.h */,
+				BEF727CB30912BF9002ACA7D /* gerenciador_Colisoes.cpp */,
 				BE816D68308D633100918761 /* Products */,
 			);
 			sourceTree = "<group>";
