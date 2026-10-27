@@ -44,7 +44,7 @@ int main(int, char const**)
     if (!font.loadFromFile(resourcePath() + "tuffy.ttf")) {
         return EXIT_FAILURE;
     }
-    sf::Text text("Hello SFML", font, 50);
+    sf::Text text("Hello", font, 50);
     text.setFillColor(sf::Color::Black);
 
     // Load a music to play
