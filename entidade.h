@@ -1,12 +1,9 @@
-//  entidade.h
-//  the last knight
-
 #ifndef _ENTIDADE_H_
 #define _ENTIDADE_H_
 #include "stdafx.h"
 
 
-class Entidade : Public Ente {
+class Entidade :: Public Ente {
 protected:
     int x;
     int y;
