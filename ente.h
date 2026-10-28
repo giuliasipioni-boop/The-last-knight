@@ -1,6 +1,3 @@
-//  ente.h
-//  the last knight
-
 #ifndef _ENTE_H_
 #define _ENTE_H_
 #include "stdafx.h"
