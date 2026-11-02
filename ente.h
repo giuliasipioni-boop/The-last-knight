@@ -2,20 +2,24 @@
 #define _ENTE_H_
 #include "stdafx.h"
 
+class Gerenciador_grafico;
+
 class Ente{
 protected:
     int id;
-    static *Gerenciador_grafico;
-    Figura* pFig;
+    static Gerenciador_grafico* pGG;
+    //Figura* pFig;  
+    sf::RectangleShape figura;
 
 public:
-    Ente();
+    Ente(int id);
     virtual ~Ente();
     virtual void executar()=0;
     void desenhar();
-    void static setGG(Gerenciador_grafico* pG);
+    static void setGG(Gerenciador_grafico* pG);
+    const sf::Drawable& getFigura() const;
     
-}
+};
 
 
 #endif
