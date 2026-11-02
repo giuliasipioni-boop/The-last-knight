@@ -2,7 +2,7 @@
 #define _PROJETIL_H_
 #include "stdafx.h"
 
-class Projetil :: Public Entidade{
+class Projetil : public Entidade{
 
 }
 

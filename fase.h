@@ -2,7 +2,7 @@
 #define _FASE_H_
 #include "stdafx.h"
 
-class Fase :: Public Ente{
+class Fase : public Ente{
 
 }
 

@@ -2,7 +2,7 @@
 #define _PRIMEIRAFASE_H_
 #include "stdafx.h"
 
-class PrimeiraFase :: Public Fase {
+class PrimeiraFase : public Fase {
 
 }
 
