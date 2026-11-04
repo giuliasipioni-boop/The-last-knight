@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BE816D70308D633100918761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D6F308D633100918761 /* main.cpp */; };
-		BE816D73308D633100918761 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE816D72308D633100918761 /* background.jpg */; };
-		BE816D75308D633100918761 /* doodle_pop.ogg in Resources */ = {isa = PBXBuildFile; fileRef = BE816D74308D633100918761 /* doodle_pop.ogg */; };
-		BE816D79308D633100918761 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE816D78308D633100918761 /* icon.png */; };
 		BEC2CE9B30978912003D4604 /* gerenciador_grafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */; };
 		BEC2CEA03097EF6B003D4604 /* ente.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D9F308D662400918761 /* ente.cpp */; };
 		BEC2CEA830981C24003D4604 /* jogador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CEA730981C24003D4604 /* jogador.cpp */; };
@@ -29,11 +26,7 @@
 
 /* Begin PBXFileReference section */
 		BE816D67308D633100918761 /* the last knight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the last knight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE816D6B308D633100918761 /* the last knight-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "the last knight-Info.plist"; path = "../the last knight-Info.plist"; sourceTree = "<group>"; };
 		BE816D6F308D633100918761 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		BE816D72308D633100918761 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = background.jpg; path = ../background.jpg; sourceTree = "<group>"; };
-		BE816D74308D633100918761 /* doodle_pop.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = doodle_pop.ogg; path = ../doodle_pop.ogg; sourceTree = "<group>"; };
-		BE816D78308D633100918761 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		BE816D80308D649100918761 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FLAC.framework; sourceTree = "<group>"; };
 		BE816D81308D649100918761 /* freetype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = freetype.framework; sourceTree = "<group>"; };
 		BE816D82308D649100918761 /* iTunesLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iTunesLibrary.framework; sourceTree = "<group>"; };
@@ -154,28 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				BE816D6F308D633100918761 /* main.cpp */,
-				BE816D71308D633100918761 /* Resources */,
-				BE816D6A308D633100918761 /* Supporting Files */,
 			);
 			path = "the last knight";
-			sourceTree = "<group>";
-		};
-		BE816D6A308D633100918761 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BE816D6B308D633100918761 /* the last knight-Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		BE816D71308D633100918761 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BE816D72308D633100918761 /* background.jpg */,
-				BE816D74308D633100918761 /* doodle_pop.ogg */,
-				BE816D78308D633100918761 /* icon.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		BE816D7F308D649000918761 /* Frameworks */ = {
@@ -304,8 +277,6 @@
 		BE816D64308D633100918761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
-				BE816D79308D633100918761 /* icon.png in Resources */,
-				BE816D75308D633100918761 /* doodle_pop.ogg in Resources */,
 				BEF2D5F3309BE6E700DCD2A3 /* garras.png in Resources */,
 				BEF2D5F4309BE6E700DCD2A3 /* fundo.png in Resources */,
 				BEF2D5F5309BE6E700DCD2A3 /* fogueira.png in Resources */,
@@ -315,7 +286,6 @@
 				BEF2D5F9309BE6E700DCD2A3 /* jogador1.png in Resources */,
 				BEF2D5FA309BE6E700DCD2A3 /* rei.png in Resources */,
 				BEF2D5FB309BE6E700DCD2A3 /* esqueleto.png in Resources */,
-				BE816D73308D633100918761 /* background.jpg in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
