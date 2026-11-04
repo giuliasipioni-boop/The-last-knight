@@ -125,7 +125,7 @@
 				BEF727C7309128F0002ACA7D /* stdafx.h */,
 				BE816DA1308D663100918761 /* entidade.h */,
 				BE816DA2308D663700918761 /* entidade.cpp */,
-				BE816D69308D633100918761 /* the last knight */,
+				BE816D6F308D633100918761 /* main.cpp */,
 				BE816D7F308D649000918761 /* Frameworks */,
 				BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */,
 				BEF727C930912BD6002ACA7D /* gerenciador_grafico.h */,
@@ -141,14 +141,6 @@
 				BE816D67308D633100918761 /* the last knight.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		BE816D69308D633100918761 /* the last knight */ = {
-			isa = PBXGroup;
-			children = (
-				BE816D6F308D633100918761 /* main.cpp */,
-			);
-			path = "the last knight";
 			sourceTree = "<group>";
 		};
 		BE816D7F308D649000918761 /* Frameworks */ = {
