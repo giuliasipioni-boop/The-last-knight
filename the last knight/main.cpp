@@ -15,7 +15,7 @@ int main()
 
         jogador1.executar();
 
-        grafico.limparTela();
+        grafico.iniciarImagJogo();
 
         jogador1.desenhar();
 

@@ -2,8 +2,17 @@
 #include "gerenciador_grafico.h"
 
 Jogador::Jogador(int id, int x, int y, int num): Personagem(id, x, y, 5), nJog(num), pontosJog(0){
-    figura.setSize(sf::Vector2f(40.f, 40.f));
-    figura.setFillColor(sf::Color::Green);
+    if (pGG != nullptr)
+    {
+        if (nJog == 1)
+        {
+            pGG->aplicarTextura(this, "jogador1");
+        }
+        else if (nJog == 2)
+        {
+            pGG->aplicarTextura(this, "jogador2");
+        }
+    }
 }
 
 Jogador::~Jogador(){

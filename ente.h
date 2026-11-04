@@ -9,7 +9,7 @@ protected:
     int id;
     static Gerenciador_grafico* pGG;
     //Figura* pFig;  
-    sf::RectangleShape figura;
+    sf::Sprite figura;
 
 public:
     Ente(int id);
@@ -17,6 +17,7 @@ public:
     virtual void executar()=0;
     void desenhar();
     static void setGG(Gerenciador_grafico* pG);
+    void setTextura(const sf::Texture& textura);
     const sf::Drawable& getFigura() const;
     
 };
