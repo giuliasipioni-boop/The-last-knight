@@ -7,7 +7,7 @@ int main()
 
     Ente::setGG(&grafico);
 
-    Jogador jogador1(1, 100, 200, 1);
+    Jogador jogador1(50, 500, 1);
 
     while (grafico.jogoAberto())
     {

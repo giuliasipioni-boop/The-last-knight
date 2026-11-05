@@ -8,7 +8,7 @@ protected:
     int vida;
 
 public :
-    Personagem(int id, int x, int y, int vida);
+    Personagem(int x, int y, int vida);
     virtual ~Personagem();
 
     void setVida(int vida);

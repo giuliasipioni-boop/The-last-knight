@@ -1,8 +1,8 @@
 #include "gerenciador_grafico.h"
-//#include "ente.h"
+#include "ente.h"
 
 
-Gerenciador_grafico::Gerenciador_grafico():janelaJogo(sf::VideoMode(1280, 720), "The Last Knight"){
+Gerenciador_grafico::Gerenciador_grafico():janelaJogo(sf::VideoMode(1280, 720), "The Last Knight"), movimentoXJog1(0), movimentoXJog2(0){
 
    janelaJogo.setFramerateLimit(120);
 
@@ -31,38 +31,42 @@ void Gerenciador_grafico::desenharEnte(Ente* pE){
 void Gerenciador_grafico::limparTela(){
 
     janelaJogo.clear();
-
 }
 
 void Gerenciador_grafico::mostrarJogo(){
 
     janelaJogo.display();
-
 }
 
 bool Gerenciador_grafico::jogoAberto()const {
 
     return janelaJogo.isOpen();
-
 }
 
-void Gerenciador_grafico::processarEventos(){
-    
+void Gerenciador_grafico::processarEventos()
+{
     sf::Event evento;
 
     while (janelaJogo.pollEvent(evento))
     {
         if (evento.type == sf::Event::Closed)
-        {
             janelaJogo.close();
+
+        if (evento.type == sf::Event::KeyPressed)
+        {
+            if (evento.key.code == sf::Keyboard::A)
+                movimentoXJog1 -= 10;
+
+            if (evento.key.code == sf::Keyboard::D)
+                movimentoXJog1 += 10;
+
+            if (evento.key.code == sf::Keyboard::Left)
+                movimentoXJog2 -= 10;
+
+            if (evento.key.code == sf::Keyboard::Right)
+                movimentoXJog2 += 10;
         }
     }
-
-}
-
-bool Gerenciador_grafico::teclaPressionada(sf::Keyboard::Key tecla) const
-{
-    return sf::Keyboard::isKeyPressed(tecla);
 }
 
  void Gerenciador_grafico::carregarImagens(){
@@ -92,15 +96,13 @@ bool Gerenciador_grafico::teclaPressionada(sf::Keyboard::Key tecla) const
 
 
 bool Gerenciador_grafico::carregarTextura(const std::string& nome, const std::string& pasta){
-    if (texturas.find(nome) != texturas.end())
-    {
+    if (texturas.find(nome) != texturas.end()){
         return true;
     }
 
     sf::Texture& textura = texturas[nome];
 
-    if (!textura.loadFromFile(pasta))
-    {
+    if (!textura.loadFromFile(pasta)){
         std::cerr << "Erro ao carregar: " << pasta << std::endl;
 
         texturas.erase(nome);
@@ -112,15 +114,13 @@ bool Gerenciador_grafico::carregarTextura(const std::string& nome, const std::st
 }
 
 bool Gerenciador_grafico::aplicarTextura(Ente* pE, const std::string& nome){
-    if (pE == nullptr)
-    {
+    if (pE == nullptr){
         return false;
     }
 
     auto it = texturas.find(nome);
 
-    if (it == texturas.end())
-    {
+    if (it == texturas.end()){
         std::cerr << "Textura nao encontrada: " << nome << std::endl;
 
         return false;
@@ -132,28 +132,20 @@ bool Gerenciador_grafico::aplicarTextura(Ente* pE, const std::string& nome){
 
 }
 
-void Gerenciador_grafico::configurarFundo()
-{
+void Gerenciador_grafico::configurarFundo(){
     auto it = texturas.find("fundo");
 
-    // Se não encontrou, não configura o fundo.
-    if (it == texturas.end())
-    {
+    if (it == texturas.end()){
         return;
     }
-
-    // Associa a textura ao sprite.
+    
     fundo.setTexture(it->second);
 
-    // Coloca no canto superior esquerdo.
     fundo.setPosition(0.f, 0.f);
 
-    // Obtém o tamanho da imagem.
     sf::Vector2u tamanho = it->second.getSize();
 
-    if (tamanho.x > 0 && tamanho.y > 0)
-    {
-        // Ajusta a imagem para 1280 x 720.
+    if (tamanho.x > 0 && tamanho.y > 0){
         fundo.setScale(
             1280.f / tamanho.x,
             720.f / tamanho.y
@@ -161,20 +153,28 @@ void Gerenciador_grafico::configurarFundo()
     }
 }
 
-void Gerenciador_grafico::desenharFundo()
-{
-    if (fundo.getTexture() != nullptr)
-    {
+void Gerenciador_grafico::desenharFundo(){
+    if (fundo.getTexture() != nullptr){
         desenharFigura(fundo);
     }
 }
 
 
-void Gerenciador_grafico::iniciarImagJogo()
-{
+void Gerenciador_grafico::iniciarImagJogo(){
     limparTela();
     desenharFundo();
 }
 
 
+int Gerenciador_grafico::getMovimentoXJog1()
+{
+    int movimento = movimentoXJog1;
+    movimentoXJog1 = 0;
+    return movimento;
+}
 
+int Gerenciador_grafico::getMovimentoXJog2(){
+    int movimento = movimentoXJog2;
+    movimentoXJog2 = 0;
+    return movimento;
+}

@@ -10,7 +10,7 @@ class Jogador : public Personagem{
     int pontosJog;
 
     public:
-    Jogador(int id, int x, int y, int num);
+    Jogador(int x, int y, int num);
     virtual ~Jogador();
     void mover();
     void executar();
