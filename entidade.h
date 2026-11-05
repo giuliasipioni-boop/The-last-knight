@@ -14,7 +14,7 @@ protected:
     //ostream buffer;
 
 public:
-    Entidade(int id, int x, int y);
+    Entidade(int x, int y);
     virtual ~Entidade();
 
     void setPosicao(int x, int y);
