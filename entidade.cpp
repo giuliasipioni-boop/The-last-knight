@@ -1,29 +1,32 @@
 #include "entidade.h"
 #include "ente.h"
 
-Entidade::Entidade(int x, int y) : Ente(), x(x), y(y), velX(0), velY(0)
+namespace TrabalhoJogo {
+namespace Entidades {
+
+Entidade::Entidade(float x, float y) : Ente(), x(x), y(y), velX(0.f), velY(0.f)
 {
     figura.setPosition(this->x, this->y);
 }
 
- Entidade::~Entidade(){
- }
+Entidade::~Entidade(){
+}
 
- void Entidade::setPosicao(int x, int y){
+void Entidade::setPosicao(float x, float y){
     
     this->x = x;
     this->y = y;
-
+    
     figura.setPosition(this->x, this->y);
- }
+}
 
- void Entidade::setVelocidade(int velX, int velY){
-
+void Entidade::setVelocidade(float velX, float velY){
+    
     this->velX = velX;
     this->velY = velY;
 }
 
- int Entidade::getPosicaoX(){
+int Entidade::getPosicaoX(){
     return x;
 }
 
@@ -39,4 +42,5 @@ int Entidade::getVelocidadeY(){
     return velY;
 }
 
-
+}
+}

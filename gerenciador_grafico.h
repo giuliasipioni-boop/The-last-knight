@@ -3,39 +3,43 @@
 #include "stdafx.h"
 #include "ente.h"
 
+namespace TrabalhoJogo {
 class Ente;
+}
+
+namespace TrabalhoJogo {
+namespace Gerenciadores{
 
 class Gerenciador_grafico {
 private:
     sf::RenderWindow janelaJogo;
+    
     std::map<std::string, sf::Texture> texturas;
     sf::Sprite fundo;
-    int movimentoXJog1;
-    int movimentoXJog2;
     
-
+    
 public:
-//construtora e destrutora
+    //construtora e destrutora
     Gerenciador_grafico ();
     ~Gerenciador_grafico();
-
-//outras funcoes
+    
+    //outras funcoes
     void desenharFigura(const sf::Drawable& figura);
-    void desenharEnte(Ente *pE);
+    void desenharEnte(TrabalhoJogo::Ente *pE);
     void limparTela();
-    void mostrarJogo();  
+    void mostrarJogo();
     bool jogoAberto() const;
-    void processarEventos();
     void carregarImagens();
     bool carregarTextura(const std::string& nome, const std::string& caminho);
-    bool aplicarTextura(Ente* pE, const std::string& nome);
+    bool aplicarTextura(TrabalhoJogo::Ente* pE, const std::string& nome);
     void configurarFundo();
     void desenharFundo();
     void iniciarImagJogo();
-    int getMovimentoXJog1();
-    int getMovimentoXJog2();
-
+    
+    
 };
 
+}
+}
 
 #endif
