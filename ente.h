@@ -2,27 +2,37 @@
 #define _ENTE_H_
 #include "stdafx.h"
 
+namespace TrabalhoJogo{
+namespace Gerenciadores {
 class Gerenciador_grafico;
+}
+}
+
+
+namespace TrabalhoJogo {
 
 class Ente{
 protected:
     int id;
-    
     static int proxID;
-    static Gerenciador_grafico* pGG;
+    
+    static Gerenciadores::Gerenciador_grafico* pGG;
     sf::Sprite figura;
-
+    
 public:
+    //construtora e destrutora
     Ente();
     virtual ~Ente();
+    
     virtual void executar()=0;
     void desenhar();
-    static void setGG(Gerenciador_grafico* pG);
+    static void setGG(Gerenciadores::Gerenciador_grafico* pG);
     void setTextura(const sf::Texture& textura);
     const sf::Drawable& getFigura() const;
     int getID();
     
 };
 
+}
 
 #endif

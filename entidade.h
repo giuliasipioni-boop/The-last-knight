@@ -3,31 +3,33 @@
 #include "stdafx.h"
 #include "ente.h"
 
+namespace TrabalhoJogo {
+namespace Entidades {
 
-class Entidade : public Ente {
+class Entidade : public TrabalhoJogo::Ente {
 protected:
-    int x;
-    int y;
-    int velX;
-    int velY;
-
-    //ostream buffer;
-
+    float x;
+    float y;
+    float velX;
+    float velY;
+    
 public:
-    Entidade(int x, int y);
+    Entidade(float x, float y);
     virtual ~Entidade();
-
-    void setPosicao(int x, int y);
-    void setVelocidade(int velX, int velY);
+    
+    void setPosicao(float x, float y);
+    void setVelocidade(float velX, float velY);
     int getPosicaoX();
     int getPosicaoY();
     int getVelocidadeX();
     int getVelocidadeY();
     
-    //void salvaDataBuffer();
     virtual void executar()=0;
     virtual void salvar()=0;
     
 };
+
+}
+}
 
 #endif

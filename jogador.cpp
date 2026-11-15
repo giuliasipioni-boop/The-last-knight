@@ -1,45 +1,50 @@
 #include "jogador.h"
 #include "gerenciador_grafico.h"
 
-Jogador::Jogador(int x, int y, int num): Personagem(x, y, 5), nJog(num), pontosJog(0){
-    if (pGG != nullptr)
-    {
-        if (nJog == 1)
-        {
+namespace TrabalhoJogo {
+namespace Entidades {
+namespace Personagens {
+
+Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pontosJog(0),direcao(0) {
+
+    if (pGG != 0) {
+        if (nJog == 1) {
             pGG->aplicarTextura(this, "jogador1");
         }
-        else if (nJog == 2)
-        {
+        else if (nJog == 2) {
             pGG->aplicarTextura(this, "jogador2");
         }
     }
 }
 
-Jogador::~Jogador(){
+Jogador::~Jogador() {
+}
+
+void Jogador::setDirecao(int direcao) {
+    this->direcao = direcao;
+    velX = 250.f * direcao;
+}
+
+void Jogador::atacar() {
+    // ataque com espada
 
 }
 
+void Jogador::mover() {
+    aplicarFisica();
+}
 
-void Jogador::mover(){
-        if (pGG == nullptr)
-            return;
+void Jogador::executar() {
+    if (!morto()) {
+        mover();
+    }
+}
 
-        if (nJog == 1)
-            x += pGG->getMovimentoXJog1();
-
-        else if (nJog == 2)
-            x += pGG->getMovimentoXJog2();
-
-        figura.setPosition(x, y);
+void Jogador::salvar() {
+    // fazer o salvamento depois
 }
 
 
-void Jogador::executar(){
-    mover();
 }
-
-void Jogador::salvar(){
-
-    //fazer quando implementarmos o salvamento
-    
 }
+]

@@ -1,9 +1,30 @@
-#ifndef _PROJETIL_H_
-#define _PROJETIL_H_
-#include "stdafx.h"
+#ifndef PROJETIL_H
+#define PROJETIL_H
 
-class Projetil : public Entidade{
+#include "entidade.h"
+
+namespace TrabalhoJogo {
+namespace Entidades {
+
+class Projetil : public Entidade {
+private:
+    bool ativo;
+    float tempo;
+    float gravidade;
+
+public:
+    Projetil(float x, float y, float velX, float velY);
+    virtual ~Projetil();
+
+    void setTempo(float tempo);
+    bool estaAtivo() const;
+    void desativar();
+
+    void executar();
+    void salvar();
+};
 
 }
+}
 
-#endif 
+#endif
