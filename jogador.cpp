@@ -6,7 +6,7 @@ namespace Entidades {
 namespace Personagens {
 
 Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pontosJog(0),direcao(0) {
-
+    
     if (pGG != 0) {
         if (nJog == 1) {
             pGG->aplicarTextura(this, "jogador1");
@@ -27,7 +27,7 @@ void Jogador::setDirecao(int direcao) {
 
 void Jogador::atacar() {
     // ataque com espada
-
+    
 }
 
 void Jogador::mover() {
@@ -47,4 +47,4 @@ void Jogador::salvar() {
 
 }
 }
-]
+}
