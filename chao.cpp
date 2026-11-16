@@ -1,10 +1,10 @@
-#include "chao.h"
+#include "Chao.h"
 
-namespace TrabalhoJogo {
-namespace Entidades{
+Chao::Chao(float x, float y, float largura, float altura)
+    : Plataforma(),
+      larguraChao(largura),
+      alturaChao(altura) {
 
-
-Chao::Chao(float x, float y, float largura, float altura): Plataforma(), larguraChao(largura),alturaChao(altura) {
     setPosicao(x, y);
     definirTamanho(largura, altura);
 }
@@ -18,8 +18,10 @@ void Chao::executar() {
 }
 
 PlataformaFisica Chao::getLimitesFisicos() const {
-    return PlataformaFisica(getX(), getY(), larguraChao, alturaChao);
-}
-
-}
+    return PlataformaFisica(
+        getX(),
+        getY(),
+        larguraChao,
+        alturaChao
+    );
 }
