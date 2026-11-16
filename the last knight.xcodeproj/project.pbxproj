@@ -26,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE1F082A30AB8C2700682346 /* chao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = chao.h; sourceTree = "<group>"; };
+		BE1F082B30AB8C2D00682346 /* chao.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = chao.cpp; sourceTree = "<group>"; };
 		BE3F7D3F30A6461A00F7B08E /* gerenciador_eventos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gerenciador_eventos.h; sourceTree = "<group>"; };
 		BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gerenciador_eventos.cpp; sourceTree = "<group>"; };
 		BE3F7D4230AA481A00F7B08E /* inimigo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = inimigo.h; sourceTree = "<group>"; };
@@ -125,6 +127,8 @@
 				BEC2CE8D30978773003D4604 /* primeirafase.cpp */,
 				BEC2CE8C30978773003D4604 /* primeirafase.h */,
 				BEC2CE9130978773003D4604 /* segundafase.cpp */,
+				BE1F082A30AB8C2700682346 /* chao.h */,
+				BE1F082B30AB8C2D00682346 /* chao.cpp */,
 				BEC2CE9030978773003D4604 /* segundafase.h */,
 				BEC2CE8630978773003D4604 /* menu.h */,
 				BEC2CE8730978773003D4604 /* menu.cpp */,
