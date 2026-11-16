@@ -23,7 +23,7 @@ public:
     virtual ~Inimigo();
 
     virtual void danificar(Jogador* pJog);
-    void setJogadores(Jogador* jog1, Jogador* jog2 = 0);
+    void setJogadores(Jogador* jog1, Jogador* jog2);
 
     virtual void mover() = 0;
     virtual void executar();

@@ -12,7 +12,7 @@ Ente::Ente():id(proxID++){
 Ente::~Ente(){
 }
 
-void Ente::setGG(Gerenciador_grafico* pG){
+void Ente::setGG(Gerenciadores::Gerenciador_grafico* pG){
     
     pGG = pG;
 }
