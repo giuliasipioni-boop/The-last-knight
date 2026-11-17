@@ -35,7 +35,7 @@ public:
     void configurarFundo();
     void desenharFundo();
     void iniciarImagJogo();
-    
+    sf::RenderWindow& getJanela();
     
 };
 

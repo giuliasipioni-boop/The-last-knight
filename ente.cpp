@@ -39,4 +39,22 @@ int Ente::getID(){
     return id;
 }
 
+void Ente::setEscala(float escala) {
+    figura.setScale(escala, escala);
+}
+
+void Ente::virar(bool direita) {
+
+    float escala = figura.getScale().y;
+
+    if (direita) {
+        figura.setOrigin(0.f, 0.f);
+        figura.setScale(escala, escala);
+    }
+    else {
+        figura.setOrigin(figura.getLocalBounds().width, 0.f);
+        figura.setScale(-escala, escala);
+    }
+}
+
 }
