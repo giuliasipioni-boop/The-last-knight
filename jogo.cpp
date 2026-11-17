@@ -1,22 +1,20 @@
+
 #include "jogo.h"
 
 #include "ente.h"
 #include "jogador.h"
 #include "esqueleto.h"
 #include "mago.h"
-
 #include "gerenciador_eventos.h"
 #include "gerenciador_colisoes.h"
 #include "lista_entidades.h"
-
-#include <iostream>
 
 namespace TrabalhoJogo {
 
 using namespace Entidades::Personagens;
 using namespace Gerenciadores;
 
-Jogo::Jogo() {
+Jogo::Jogo() : pJog1(0) {
     Ente::setGG(&grafico);
 }
 
@@ -30,10 +28,13 @@ void Jogo::executar() {
     Esqueleto esqueleto(450.f, 300.f);
     Mago mago(900.f, 300.f);
 
+    pJog1 = &jogador;
+
+    // Escalas que ja estavam funcionando
     esqueleto.setEscala(0.90f);
     mago.setEscala(0.75f);
 
-    // O Mago persegue o jogador.
+    // Mago persegue o jogador
     mago.setJogadores(&jogador, 0);
 
     // Gerenciador de eventos
@@ -81,7 +82,7 @@ void Jogo::executar() {
             dt = 0.05f;
         }
 
-        // 1. Eventos
+        // 1. Eventos do teclado
         eventos.executar();
 
         if (!grafico.jogoAberto()) {
@@ -95,27 +96,13 @@ void Jogo::executar() {
 
         colisoes.setTempo(dt);
 
-        // 3. Atualiza as entidades
+        // 3. Movimentacao das entidades
         entidades.percorrer();
-        // Teste da movimentacao do Esqueleto
-        static float tempoTeste = 0.f;
-        tempoTeste += dt;
 
-        if (tempoTeste >= 1.f) {
-            std::cout << "Esqueleto X: "
-                      << esqueleto.getPosicaoX()
-                      << " | Velocidade: "
-                      << esqueleto.getVelocidadeX()
-                      << std::endl;
-
-            tempoTeste = 0.f;
-        }
-
-        // 4. Verifica as colisoes
+        // 4. Colisoes
         colisoes.executar();
 
-        // 5. Corrige a direcao dos sprites
-        // false = imagem original olha para esquerda
+        // 5. Direcao dos sprites
         if (jogador.getVelocidadeX() > 0)
             jogador.virar(true);
         else if (jogador.getVelocidadeX() < 0)
@@ -131,7 +118,7 @@ void Jogo::executar() {
         else if (mago.getVelocidadeX() < 0)
             mago.virar(false);
 
-        // 6. Desenha o jogo
+        // 6. Desenho
         grafico.iniciarImagJogo();
 
         grafico.desenharFigura(chao);
@@ -140,7 +127,8 @@ void Jogo::executar() {
 
         grafico.mostrarJogo();
     }
-}
+
+    pJog1 = 0;
 }
 
-
+}

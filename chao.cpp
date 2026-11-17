@@ -1,7 +1,10 @@
 #include "Chao.h"
 
+namespace TrabalhoJogo{
+namespace Entidades{
+
 Chao::Chao(float x, float y, float largura, float altura)
-    : Entidade(x, y) {
+: Entidade(x, y) {
 }
 
 Chao::~Chao() {
@@ -17,3 +20,5 @@ void Chao::salvar() {
 }
 
 
+}
+}
