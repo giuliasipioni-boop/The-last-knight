@@ -1,4 +1,3 @@
-```cpp
 #include "Chao.h"
 
 Chao::Chao(float x, float y, float largura, float altura)
