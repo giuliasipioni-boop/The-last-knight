@@ -50,7 +50,7 @@ void ListaEntidades::desenhar() {
                     Entidades::Personagens::Personagem*
                 >(pE);
 
-            if (pP != 0 && pP->estaMorto()) {
+            if (pP != 0 && pP->morto()) {
                 visivel = false;
             }
 

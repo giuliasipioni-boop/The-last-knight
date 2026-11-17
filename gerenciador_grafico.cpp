@@ -131,5 +131,11 @@ void Gerenciador_grafico::iniciarImagJogo(){
     desenharFundo();
 }
 
+sf::RenderWindow& Gerenciador_grafico::getJanela() {
+    return janelaJogo;
+}
+
+
 }
 }
+

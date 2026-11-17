@@ -5,7 +5,7 @@ namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
 
-Mago::Mago(float x, float y): Inimigo(x, y, 2, 2), direcao(-1),{
+Mago::Mago(float x, float y): Inimigo(x, y, 2, 2), direcao(-1){
     velX = -110.f;
 
     if (pGG != 0) {

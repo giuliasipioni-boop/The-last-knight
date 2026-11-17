@@ -13,8 +13,8 @@ Inimigo::~Inimigo() {
 
 Jogador* Inimigo::escolherAlvo() {
 
-    bool vivo1 = (pJogador1 != 0 && !pJogador1->estaMorto());
-    bool vivo2 = (pJogador2 != 0 && !pJogador2->estaMorto());
+    bool vivo1 = (pJogador1 != 0 && !pJogador1->morto());
+    bool vivo2 = (pJogador2 != 0 && !pJogador2->morto());
 
     if (!vivo1 && !vivo2) {
         return 0;
@@ -47,8 +47,8 @@ Jogador* Inimigo::escolherAlvo() {
 }
 
 void Inimigo::danificar(Jogador* pJog) {
-    if (pJog != 0 && !estaMorto()) {
-        if (!pJog->estaMorto()) {
+    if (pJog != 0 && !morto()) {
+        if (!pJog->morto()) {
             pJog->Dano();
         }
     }
@@ -60,7 +60,7 @@ void Inimigo::setJogadores(Jogador* jog1, Jogador* jog2) {
 }
 
 void Inimigo::executar() {
-    if (!estaMorto()) {
+    if (!morto()) {
         mover();
     }
 }

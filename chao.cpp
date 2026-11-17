@@ -15,3 +15,5 @@ void Chao::salvar() {
     salvarDataBuffer();
     buffer << " CHAO";
 }
+
+

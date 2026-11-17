@@ -17,6 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BE816D66308D633100918761"
                BuildableName = "the last knight.app"
+               BlueprintName = "the last knight"
                ReferencedContainer = "container:the last knight.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,6 +48,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE816D66308D633100918761"
             BuildableName = "the last knight.app"
+            BlueprintName = "the last knight"
             ReferencedContainer = "container:the last knight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,6 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BE816D66308D633100918761"
             BuildableName = "the last knight.app"
+            BlueprintName = "the last knight"
             ReferencedContainer = "container:the last knight.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

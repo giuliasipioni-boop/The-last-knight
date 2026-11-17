@@ -30,6 +30,8 @@ public:
     void setTextura(const sf::Texture& textura);
     const sf::Drawable& getFigura() const;
     int getID();
+    void setEscala(float escala);
+    void virar(bool direita);
     
 };
 

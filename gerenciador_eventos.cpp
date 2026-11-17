@@ -5,6 +5,9 @@ namespace TrabalhoJogo {
 namespace Gerenciadores {
 
 Gerenciador_eventos::Gerenciador_eventos(sf::RenderWindow* janela, Entidades::Personagens::Jogador* jog1, Entidades::Personagens::Jogador* jog2) : pJanela(janela), pJogador1(jog1),pJogador2(jog2) {
+    if (pJanela != 0) {
+            pJanela->setKeyRepeatEnabled(false);
+        }
 }
 
 Gerenciador_eventos::~Gerenciador_eventos() {
@@ -25,9 +28,7 @@ void Gerenciador_eventos::executar() {
         }
 
         if (evento.type == sf::Event::KeyPressed) {
-            if (!evento.key.repeat) {
-                verificarTeclaPressionada(evento.key.code);
-            }
+            verificarTeclaPressionada(evento.key.code);
         }
 
         if (evento.type == sf::Event::KeyReleased) {
@@ -42,7 +43,7 @@ void Gerenciador_eventos::verificarTeclaPressionada(
 
     // Jogador 1
 
-    if (pJogador1 != 0 && !pJogador1->estaMorto()) {
+    if (pJogador1 != 0 && !pJogador1->morto()) {
 
         if (tecla == sf::Keyboard::A) {
             pJogador1->setDirecao(-1);
@@ -63,7 +64,7 @@ void Gerenciador_eventos::verificarTeclaPressionada(
 
     // Jogador 2
 
-    if (pJogador2 != 0 && !pJogador2->estaMorto()) {
+    if (pJogador2 != 0 && !pJogador2->morto()) {
 
         if (tecla == sf::Keyboard::Left) {
             pJogador2->setDirecao(-1);

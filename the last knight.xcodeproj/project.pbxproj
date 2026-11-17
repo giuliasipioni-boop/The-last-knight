@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		BE3F7D5130AA54B900F7B08E /* fogueira.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3F7D4F30AA54B900F7B08E /* fogueira.png */; };
 		BE3F7D5230AA54B900F7B08E /* projetil.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3F7D5030AA54B900F7B08E /* projetil.png */; };
+		BE59792530ABD13F00AD4633 /* inimigo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4330AA482300F7B08E /* inimigo.cpp */; };
+		BE59792630ABD14400AD4633 /* esqueleto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4530AA492100F7B08E /* esqueleto.cpp */; };
+		BE59792730ABD14900AD4633 /* mago.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4730AA4B2F00F7B08E /* mago.cpp */; };
+		BE59792830ABD15100AD4633 /* rei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4B30AA4E5200F7B08E /* rei.cpp */; };
+		BE59792B30ACA77300AD4633 /* jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE59792A30ACA77200AD4633 /* jogo.cpp */; };
+		BE59792C30ACA9F800AD4633 /* gerenciador_colisoes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE9930978797003D4604 /* gerenciador_colisoes.cpp */; };
+		BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */; };
+		BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */; };
+		BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8F30978773003D4604 /* projetil.cpp */; };
 		BE816D70308D633100918761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D6F308D633100918761 /* main.cpp */; };
 		BEC2CE9B30978912003D4604 /* gerenciador_grafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */; };
 		BEC2CEA03097EF6B003D4604 /* ente.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D9F308D662400918761 /* ente.cpp */; };
@@ -44,6 +53,8 @@
 		BE3F7D5430AA55C600F7B08E /* elemento.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = elemento.h; sourceTree = "<group>"; };
 		BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lista_entidades.cpp; sourceTree = "<group>"; };
 		BE3F7D5630AA55F200F7B08E /* lista_entidades.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista_entidades.h; sourceTree = "<group>"; };
+		BE59792930ACA76B00AD4633 /* jogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jogo.h; sourceTree = "<group>"; };
+		BE59792A30ACA77200AD4633 /* jogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jogo.cpp; sourceTree = "<group>"; };
 		BE816D67308D633100918761 /* the last knight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the last knight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE816D6F308D633100918761 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BE816D80308D649100918761 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FLAC.framework; sourceTree = "<group>"; };
@@ -164,6 +175,8 @@
 				BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */,
 				BEF727C7309128F0002ACA7D /* stdafx.h */,
 				BE816D6F308D633100918761 /* main.cpp */,
+				BE59792930ACA76B00AD4633 /* jogo.h */,
+				BE59792A30ACA77200AD4633 /* jogo.cpp */,
 				BE816D7F308D649000918761 /* Frameworks */,
 				BE816D68308D633100918761 /* Products */,
 			);
@@ -458,6 +471,15 @@
 		BE816D62308D633100918761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */,
+				BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */,
+				BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */,
+				BE59792C30ACA9F800AD4633 /* gerenciador_colisoes.cpp in Sources */,
+				BE59792830ABD15100AD4633 /* rei.cpp in Sources */,
+				BE59792730ABD14900AD4633 /* mago.cpp in Sources */,
+				BE59792630ABD14400AD4633 /* esqueleto.cpp in Sources */,
+				BE59792B30ACA77300AD4633 /* jogo.cpp in Sources */,
+				BE59792530ABD13F00AD4633 /* inimigo.cpp in Sources */,
 				BEC2CEAA3098205E003D4604 /* entidade.cpp in Sources */,
 				BEC2CEA930982048003D4604 /* personagem.cpp in Sources */,
 				BEC2CEA830981C24003D4604 /* jogador.cpp in Sources */,

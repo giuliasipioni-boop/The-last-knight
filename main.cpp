@@ -1,4 +1,11 @@
-#include "gerenciador_grafico.h"
-#include "jogador.h"
+#include "jogo.h"
 
+int main() {
+
+    TrabalhoJogo::Jogo jogo;
+
+    jogo.executar();
+
+    return 0;
+}
 
