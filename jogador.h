@@ -24,7 +24,7 @@ public:
     void mover();
     void executar();
     void salvar();
-    //void colidir(Inimigo* pIni);
+    
     
 };
 

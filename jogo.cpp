@@ -5,16 +5,18 @@
 #include "jogador.h"
 #include "esqueleto.h"
 #include "mago.h"
+#include "rei.h"
 #include "gerenciador_eventos.h"
 #include "gerenciador_colisoes.h"
 #include "lista_entidades.h"
+#include "chao.h"
 
 namespace TrabalhoJogo {
 
 using namespace Entidades::Personagens;
 using namespace Gerenciadores;
 
-Jogo::Jogo() : pJog1(0) {
+Jogo::Jogo():pJog1(0) {
     Ente::setGG(&grafico);
 }
 
@@ -25,53 +27,46 @@ void Jogo::executar() {
 
     // Personagens
     Jogador jogador(100.f, 300.f, 1);
-    Esqueleto esqueleto(450.f, 300.f);
+    Esqueleto esqueleto(900.f, 300.f);
     Mago mago(900.f, 300.f);
+    Rei rei(900.f, 300.f);
 
     pJog1 = &jogador;
 
     // Escalas que ja estavam funcionando
-    esqueleto.setEscala(0.90f);
+    esqueleto.setEscala(0.80f);
     mago.setEscala(0.75f);
+    rei.setEscala(0.40f);
 
     // Mago persegue o jogador
     mago.setJogadores(&jogador, 0);
+    rei.setJogadores(&jogador, 0);
 
     // Gerenciador de eventos
-    Gerenciador_eventos eventos(
-        &grafico.getJanela(),
-        &jogador,
-        0
-    );
+    Gerenciador_eventos eventos(&grafico.getJanela(),&jogador,0);
 
     // Gerenciador de colisoes
-    Gerenciador_colisoes colisoes(
-        &jogador,
-        0
-    );
+    Gerenciador_colisoes colisoes(&jogador,0);
 
     colisoes.setLimites(1280.f, 620.f);
-
     colisoes.incluirInimigo(&esqueleto);
     colisoes.incluirInimigo(&mago);
+    colisoes.incluirInimigo(&rei);
 
     // Lista de entidades
     Listas::ListaEntidades entidades;
-
     entidades.incluir(&jogador);
     entidades.incluir(&esqueleto);
     entidades.incluir(&mago);
+    entidades.incluir(&rei);
 
-    // Chao temporario
-    sf::RectangleShape chao(
-        sf::Vector2f(1280.f, 100.f)
-    );
-
-    chao.setPosition(0.f, 620.f);
-    chao.setFillColor(sf::Color(90, 65, 45));
-
-    colisoes.incluirChao(&chao);
-
+    //Chao
+    Entidades::Chao chao(0.f, 620.f, 1280.f, 100.f);
+    // Retangulo usado somente para colisao
+    sf::RectangleShape areaChao(sf::Vector2f(1280.f, 100.f));
+    areaChao.setPosition(0.f, 620.f);
+    colisoes.incluirChao(&areaChao);
+    
     sf::Clock relogio;
 
     while (grafico.jogoAberto()) {
@@ -93,7 +88,7 @@ void Jogo::executar() {
         jogador.setTempo(dt);
         esqueleto.setTempo(dt);
         mago.setTempo(dt);
-
+        rei.setTempo(dt);
         colisoes.setTempo(dt);
 
         // 3. Movimentacao das entidades
@@ -120,11 +115,7 @@ void Jogo::executar() {
 
         // 6. Desenho
         grafico.iniciarImagJogo();
-
-        grafico.desenharFigura(chao);
-
         entidades.desenhar();
-
         grafico.mostrarJogo();
     }
 
