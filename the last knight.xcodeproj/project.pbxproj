@@ -18,6 +18,7 @@
 		BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */; };
 		BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */; };
 		BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8F30978773003D4604 /* projetil.cpp */; };
+		BE59793030ACDA5900AD4633 /* chao.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE1F082B30AB8C2D00682346 /* chao.cpp */; };
 		BE816D70308D633100918761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D6F308D633100918761 /* main.cpp */; };
 		BEC2CE9B30978912003D4604 /* gerenciador_grafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */; };
 		BEC2CEA03097EF6B003D4604 /* ente.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D9F308D662400918761 /* ente.cpp */; };
@@ -96,12 +97,12 @@
 		BEC2CE8930978773003D4604 /* obstaculos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstaculos.cpp; sourceTree = "<group>"; };
 		BEC2CE8A30978773003D4604 /* personagem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = personagem.h; sourceTree = "<group>"; };
 		BEC2CE8B30978773003D4604 /* personagem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = personagem.cpp; sourceTree = "<group>"; };
-		BEC2CE8C30978773003D4604 /* primeirafase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = primeirafase.h; sourceTree = "<group>"; };
-		BEC2CE8D30978773003D4604 /* primeirafase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = primeirafase.cpp; sourceTree = "<group>"; };
+		BEC2CE8C30978773003D4604 /* masmora.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = masmora.h; sourceTree = "<group>"; };
+		BEC2CE8D30978773003D4604 /* masmora.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = masmora.cpp; sourceTree = "<group>"; };
 		BEC2CE8E30978773003D4604 /* projetil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projetil.h; sourceTree = "<group>"; };
 		BEC2CE8F30978773003D4604 /* projetil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projetil.cpp; sourceTree = "<group>"; };
-		BEC2CE9030978773003D4604 /* segundafase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = segundafase.h; sourceTree = "<group>"; };
-		BEC2CE9130978773003D4604 /* segundafase.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = segundafase.cpp; sourceTree = "<group>"; };
+		BEC2CE9030978773003D4604 /* castelo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = castelo.h; sourceTree = "<group>"; };
+		BEC2CE9130978773003D4604 /* castelo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = castelo.cpp; sourceTree = "<group>"; };
 		BEC2CE9930978797003D4604 /* gerenciador_colisoes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gerenciador_colisoes.cpp; sourceTree = "<group>"; };
 		BEC2CEA630981C24003D4604 /* jogador.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jogador.h; sourceTree = "<group>"; };
 		BEC2CEA730981C24003D4604 /* jogador.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jogador.cpp; sourceTree = "<group>"; };
@@ -135,12 +136,12 @@
 				BEF2D5F2309BE6E700DCD2A3 /* imagens */,
 				BEF2D5E8309BE66A00DCD2A3 /* fase.cpp */,
 				BEC2CE8430978773003D4604 /* fase.h */,
-				BEC2CE8D30978773003D4604 /* primeirafase.cpp */,
-				BEC2CE8C30978773003D4604 /* primeirafase.h */,
-				BEC2CE9130978773003D4604 /* segundafase.cpp */,
+				BEC2CE8D30978773003D4604 /* masmora.cpp */,
+				BEC2CE8C30978773003D4604 /* masmora.h */,
+				BEC2CE9130978773003D4604 /* castelo.cpp */,
+				BEC2CE9030978773003D4604 /* castelo.h */,
 				BE1F082A30AB8C2700682346 /* chao.h */,
 				BE1F082B30AB8C2D00682346 /* chao.cpp */,
-				BEC2CE9030978773003D4604 /* segundafase.h */,
 				BEC2CE8630978773003D4604 /* menu.h */,
 				BEC2CE8730978773003D4604 /* menu.cpp */,
 				BE3F7D5330AA557A00F7B08E /* lista.h */,
@@ -471,6 +472,7 @@
 		BE816D62308D633100918761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				BE59793030ACDA5900AD4633 /* chao.cpp in Sources */,
 				BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */,
 				BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */,
 				BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */,

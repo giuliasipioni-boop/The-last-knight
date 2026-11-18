@@ -15,8 +15,9 @@ void Chao::executar() {
 }
 
 void Chao::salvar() {
-    salvarDataBuffer();
-    buffer << " CHAO";
+    // fazer a salvar depois
+    //salvarDataBuffer();
+    //buffer << " CHAO";
 }
 
 

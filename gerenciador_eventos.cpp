@@ -28,7 +28,7 @@ void Gerenciador_eventos::executar() {
         }
 
         if (evento.type == sf::Event::KeyPressed) {
-            verificarTeclaPressionada(evento.key.code);
+            verificarTeclasPressionada(evento.key.code);
         }
 
         if (evento.type == sf::Event::KeyReleased) {
@@ -38,9 +38,7 @@ void Gerenciador_eventos::executar() {
 }
 
 
-void Gerenciador_eventos::verificarTeclaPressionada(
-    sf::Keyboard::Key tecla) {
-
+void Gerenciador_eventos::verificarTeclasPressionada(sf::Keyboard::Key tecla) {
     // Jogador 1
 
     if (pJogador1 != 0 && !pJogador1->morto()) {
@@ -78,14 +76,15 @@ void Gerenciador_eventos::verificarTeclaPressionada(
             pJogador2->pular();
         }
 
-        if (tecla == sf::Keyboard::K) {
+        if (tecla == sf::Keyboard::Space) {
             pJogador2->atacar();
         }
     }
+    
 }
 
-void Gerenciador_eventos::verificarTeclaSolta(
-    sf::Keyboard::Key tecla) {
+
+void Gerenciador_eventos::verificarTeclaSolta(sf::Keyboard::Key tecla) {
 
     // Jogador 1
 
@@ -133,7 +132,6 @@ void Gerenciador_eventos::verificarTeclaSolta(
         }
     }
 }
-
 
 
 }

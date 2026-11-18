@@ -37,7 +37,7 @@ void Mago::mover() {
         direcao = 0;
     }
 
-    velX = 110.f * direcao;
+    velX = 100.f * direcao;
 
     aplicarFisica();
 }

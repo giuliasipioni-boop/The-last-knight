@@ -27,7 +27,7 @@ public:
     ~Gerenciador_eventos();
 
     void executar();
-    void verificarTeclaPressionada(sf::Keyboard::Key tecla);
+    void verificarTeclasPressionada(sf::Keyboard::Key tecla);
     void verificarTeclaSolta(sf::Keyboard::Key tecla);
 };
 

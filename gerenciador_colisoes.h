@@ -49,7 +49,7 @@ private:
     
 public:
     //construtora e destrutora
-    Gerenciador_colisoes(Entidades::Personagens::Jogador* jog1 = 0, Entidades::Personagens::Jogador* jog2 = 0);
+    Gerenciador_colisoes(Entidades::Personagens::Jogador* jog1 = 0, Entidades::Personagens::Jogador* jog2=0);
     ~Gerenciador_colisoes();
 
     void setJog1(Entidades::Personagens::Jogador* pJ);

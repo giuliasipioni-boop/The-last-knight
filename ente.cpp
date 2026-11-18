@@ -4,9 +4,10 @@
 namespace TrabalhoJogo {
 
 Gerenciadores::Gerenciador_grafico* Ente::pGG=nullptr;
-int Ente::proxID=0;
 
-Ente::Ente():id(proxID++){
+
+Ente::Ente():id(id){
+    id++;
 }
 
 Ente::~Ente(){

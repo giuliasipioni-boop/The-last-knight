@@ -38,7 +38,7 @@ void Rei::mover() {
         direcao = 0;
     }
 
-    velX = 65.f * direcao;
+    velX = 60.f * direcao;
 
     aplicarFisica();
 }
