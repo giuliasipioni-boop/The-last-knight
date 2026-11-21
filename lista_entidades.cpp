@@ -5,70 +5,74 @@
 namespace TrabalhoJogo {
 namespace Listas {
 
-ListaEntidades::ListaEntidades() {
+ListaEntidades::ListaEntidades(){
 }
 
-ListaEntidades::~ListaEntidades() {
+ListaEntidades::~ListaEntidades(){
+    limpar();
 }
 
-void ListaEntidades::incluir(Entidades::Entidade* pE) {
-    LEs.incluir(pE);
+void ListaEntidades::limpar(){
+    LEs.limpar();
 }
 
-void ListaEntidades::percorrer() {
+void ListaEntidades::incluir(Entidades::Entidade* pE){
+    if (pE == nullptr)
+        std::cerr << "Ponteiro de entidade nulo! Nao incluido!" << std::endl;
 
-    Elemento<Entidades::Entidade>* atual =
-        LEs.getPrimeiro();
+    else
+        LEs.incluir(pE);
+}
 
-    while (atual != 0) {
+void ListaEntidades::remover(Entidades::Entidade* pE)
+{
+    if (pE == nullptr)
+        std::cerr << "Ponteiro para o qual se solicita remocao (por informacao) eh nulo!" << std::endl;
 
-        Entidades::Entidade* pE = atual->getInfo();
+    else
+        LEs.remover(pE);
+}
 
-        if (pE != 0) {
-            pE->executar();
+void ListaEntidades::remover(size_t indice){
+    LEs.remover(indice);
+}
+
+size_t ListaEntidades::getTamanho() const{
+    return LEs.getTamanho();
+}
+
+Entidades::Entidade* ListaEntidades::operator[](int indice) const{
+    return LEs[indice];
+}
+
+// Lista elemento por elemento (template).
+void ListaEntidades::percorrer(){
+    LEs.percorrer();
+}
+
+// Chama executar de cada Entidade.
+void ListaEntidades::executar() {
+    const int tamanho = static_cast<int>(getTamanho());
+
+    for (int i = 0; i < tamanho; i++) {
+        if (LEs[i] != nullptr) {
+            LEs[i]->executar();
         }
-
-        atual = atual->getProx();
     }
 }
+ 
 
-void ListaEntidades::desenhar() {
-
-    Elemento<Entidades::Entidade>* atual =
-        LEs.getPrimeiro();
-
-    while (atual != 0) {
-
-        Entidades::Entidade* pE = atual->getInfo();
-
-        if (pE != 0) {
-
-            bool visivel = true;
-
-            Entidades::Personagens::Personagem* pP =
-                dynamic_cast<
-                    Entidades::Personagens::Personagem*
-                >(pE);
-
-            if (pP != 0 && pP->morto()) {
-                visivel = false;
-            }
-
-            Entidades::Projetil* pProj =
-                dynamic_cast<Entidades::Projetil*>(pE);
-
-            if (pProj != 0 && !pProj->estaAtivo()) {
-                visivel = false;
-            }
-
-            if (visivel) {
-                pE->desenhar();
-            }
-        }
-
-        atual = atual->getProx();
+/*void ListaEntidades::salvar(std::ostream* arquivo)
+{
+    const int tamanho = static_cast<int>(getTamanho());
+    for (int i = 0; i < tamanho; i++)
+    {
+        LEs[i]->setBuffer(arquivo);
+        LEs[i]->salvar();
+        LEs[i]->setBuffer(nullptr);
     }
-}
+}*/
+
 
 }
 }

@@ -4,10 +4,9 @@
 namespace TrabalhoJogo {
 
 Gerenciadores::Gerenciador_grafico* Ente::pGG=nullptr;
+int Ente::proxID = 0;
 
-
-Ente::Ente():id(id){
-    id++;
+Ente::Ente():id(proxID++){
 }
 
 Ente::~Ente(){
@@ -40,20 +39,24 @@ int Ente::getID(){
     return id;
 }
 
+
+//revisar
 void Ente::setEscala(float escala) {
     figura.setScale(escala, escala);
 }
 
+
+//revisar
 void Ente::virar(bool direita) {
 
     float escala = figura.getScale().y;
 
     if (direita) {
-        figura.setOrigin(0.f, 0.f);
+        figura.setOrigin(0.0, 0.0);
         figura.setScale(escala, escala);
     }
     else {
-        figura.setOrigin(figura.getLocalBounds().width, 0.f);
+        figura.setOrigin(figura.getLocalBounds().width, 0.0);
         figura.setScale(-escala, escala);
     }
 }

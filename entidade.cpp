@@ -4,7 +4,7 @@
 namespace TrabalhoJogo {
 namespace Entidades {
 
-Entidade::Entidade(float x, float y) : Ente(), x(x), y(y), velX(0.f), velY(0.f)
+Entidade::Entidade(float x, float y) : Ente(), x(x), y(y), velX(0.0), velY(0.0)
 {
     figura.setPosition(this->x, this->y);
 }

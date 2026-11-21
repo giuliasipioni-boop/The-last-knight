@@ -16,7 +16,7 @@ using namespace Entidades::Personagens;
 
 
 // Codigo do Peteco
-Gerenciador_colisoes::Gerenciador_colisoes(Jogador* jog1,Jogador* jog2) :LIs(),LOs(),LPs(),pJog1(jog1), pJog2(jog2), pChao(0), larguraTela(1280.f), alturaTela(720.f), topoChao(620.f),tempo(0.f), tempoDano1(0.f),tempoDano2(0.f) {
+Gerenciador_colisoes::Gerenciador_colisoes(Jogador* jog1,Jogador* jog2):LIs(),LOs(),LPs(),pJog1(jog1), pJog2(jog2), pChao(0), larguraTela(1280.0), alturaTela(720.0), topoChao(620.0),tempo(0.0), tempoDano1(0.0),tempoDano2(0.0) {
 }
 
 
@@ -50,7 +50,7 @@ bool Gerenciador_colisoes::verificarColisao(const Entidade* pe1,const Entidade* 
         return false;
     }
                                                 
-    return getLimites(pe1).intersects(getLimites(pe2));
+return getLimites(pe1).intersects(getLimites(pe2));
 
 }
 
@@ -144,10 +144,7 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
         // Chegou na parede direita
         else if (x >= 1150.f && velocidade > 0.f) {
             pEsqueleto->inverterDirecao();
-            pEsqueleto->setPosicao(
-                1145.f,
-                pEsqueleto->getPosicaoY()
-            );
+            pEsqueleto->setPosicao(1145.f,pEsqueleto->getPosicaoY());
         }
 
         return;
@@ -174,12 +171,9 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
     }
     
     // Limite direito
-    else if (
-             limites.left + limites.width > larguraTela
-             ) {
+    else if (limites.left + limites.width > larguraTela) {
                  
-                 float excesso =
-                 limites.left + limites.width - larguraTela;
+                 float excesso =limites.left + limites.width - larguraTela;
                  
                  x -= excesso;
                  

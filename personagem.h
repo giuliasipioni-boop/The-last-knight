@@ -22,6 +22,7 @@ protected:
     void setVida(int vida);
     int getVida();
     
+    void operator--();
     void Dano();
     bool morto();
     

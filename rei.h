@@ -2,6 +2,7 @@
 #define REI_H
 
 #include "inimigo.h"
+#include "jogador.h"
 
 namespace TrabalhoJogo {
 namespace Entidades {
@@ -19,6 +20,9 @@ public:
     void mover();
     void inverterDirecao();
     void lancarProjetil();
+    void executar();
+    void danificar(Jogador* pJog);
+    void salvar();
 };
 
 }
