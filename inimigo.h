@@ -21,13 +21,13 @@ public:
     //construtora e destrutora
     Inimigo(float x, float y, int vida, int nivel);
     virtual ~Inimigo();
-
-    virtual void danificar(Jogador* pJog);
+    
     void setJogadores(Jogador* jog1, Jogador* jog2);
 
     virtual void mover() = 0;
-    virtual void executar();
-    virtual void salvar();
+    virtual void executar() = 0;
+    virtual void salvar() = 0;
+    virtual void danificar(Jogador* pJog)=0;
 };
 
 }

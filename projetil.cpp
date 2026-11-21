@@ -41,7 +41,7 @@ void Projetil::executar() {
 
     figura.setPosition(x, y);
 
-    figura.rotate(300.f * tempo);
+    //figura.rotate(300.f * tempo);
 }
 
 void Projetil::salvar() {

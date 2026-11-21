@@ -2,10 +2,13 @@
 #define ESQUELETO_H
 
 #include "inimigo.h"
+#include "jogador.h"
 
 namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
+
+class Jogador;
 
 class Esqueleto : public Inimigo {
 private:
@@ -18,6 +21,10 @@ public:
 
     void mover();
     void inverterDirecao();
+    void executar();
+    void danificar(Jogador* pJog);
+    void salvar();
+
 };
 
 }

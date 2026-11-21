@@ -1,4 +1,4 @@
-#include "Chao.h"
+#include "chao.h"
 
 namespace TrabalhoJogo{
 namespace Entidades{

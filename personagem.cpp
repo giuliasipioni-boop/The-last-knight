@@ -5,7 +5,7 @@ namespace TrabalhoJogo {
 namespace Entidades{
 namespace Personagens{
 
-Personagem::Personagem(float x, float y, int vida): Entidade(x, y), vida(vida), tempo(0.f), gravidade(900.f), noAr(true){
+Personagem::Personagem(float x, float y, int vida): Entidade(x, y), vida(vida), tempo(0.0), gravidade(900.0), noAr(true){
 }
 
 Personagem::~Personagem(){
@@ -21,12 +21,17 @@ int Personagem::getVida(){
     return vida;
 }
 
-void Personagem::Dano(){
+void Personagem::operator--(){
     
     if (vida>0){
         
         vida --;
     }
+}
+
+void Personagem::Dano(){
+    
+    operator--();
 }
 
 bool Personagem::morto(){
@@ -37,23 +42,26 @@ void Personagem::setTempo(float tempo) {
     this->tempo = tempo;
 }
 
+//revisar
 void Personagem::pular() {
     if (!noAr) {
-        velY = -450.f;
+        velY = -450.0;
         noAr = true;
     }
 }
 
+
+//revisar
 void Personagem::pousar(float posY) {
     y = posY;
-    velY = 0.f;
+    velY = 0.0;
     noAr = false;
     
     figura.setPosition(x, y);
 }
 
 void Personagem::aplicarFisica() {
-    // Movimento horizontal (MRU)
+    // Movimento retilineo uniforme (MRU)
     x += velX * tempo;
     
     // Gravidade

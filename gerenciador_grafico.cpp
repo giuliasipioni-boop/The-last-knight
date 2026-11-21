@@ -49,7 +49,7 @@ void Gerenciador_grafico::carregarImagens(){
     
     carregarTextura("fundo", "imagens/fundo.png");
     carregarTextura("jogador1", "imagens/jogador1.png");
-    //carregarTextura("jogador2",);
+    carregarTextura("jogador2","imagens/jogador2.png");
     carregarTextura("esqueleto", "imagens/esqueleto.png");
     carregarTextura("mago", "imagens/mago.png");
     carregarTextura("rei", "imagens/rei.png");
@@ -61,7 +61,7 @@ void Gerenciador_grafico::carregarImagens(){
     
 }
 
-
+//revisar
 bool Gerenciador_grafico::carregarTextura(const std::string& nome, const std::string& pasta){
     if (texturas.find(nome) != texturas.end()){
         return true;
@@ -80,6 +80,8 @@ bool Gerenciador_grafico::carregarTextura(const std::string& nome, const std::st
     
 }
 
+
+//revisar
 bool Gerenciador_grafico::aplicarTextura(Ente* pE, const std::string& nome){
     if (pE == nullptr){
         return false;
@@ -100,6 +102,7 @@ bool Gerenciador_grafico::aplicarTextura(Ente* pE, const std::string& nome){
     
 }
 
+//revisar
 void Gerenciador_grafico::configurarFundo(){
     
     std::map<std::string, sf::Texture>::iterator it;
@@ -119,6 +122,7 @@ void Gerenciador_grafico::configurarFundo(){
         fundo.setScale(1280.f / tamanho.x, 720.f / tamanho.y);
     }
 }
+
 
 void Gerenciador_grafico::desenharFundo(){
     if (fundo.getTexture() != nullptr){

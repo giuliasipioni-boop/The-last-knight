@@ -46,28 +46,12 @@ Jogador* Inimigo::escolherAlvo() {
     return pJogador2;
 }
 
-void Inimigo::danificar(Jogador* pJog) {
-    if (pJog != 0 && !morto()) {
-        if (!pJog->morto()) {
-            pJog->Dano();
-        }
-    }
-}
 
 void Inimigo::setJogadores(Jogador* jog1, Jogador* jog2) {
     pJogador1 = jog1;
     pJogador2 = jog2;
 }
 
-void Inimigo::executar() {
-    if (!morto()) {
-        mover();
-    }
-}
-
-void Inimigo::salvar() {
-    // fazer o salvamento depois 
-}
 
 }
 }

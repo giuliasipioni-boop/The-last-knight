@@ -51,7 +51,6 @@
 		BE3F7D4F30AA54B900F7B08E /* fogueira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fogueira.png; sourceTree = "<group>"; };
 		BE3F7D5030AA54B900F7B08E /* projetil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projetil.png; sourceTree = "<group>"; };
 		BE3F7D5330AA557A00F7B08E /* lista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
-		BE3F7D5430AA55C600F7B08E /* elemento.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = elemento.h; sourceTree = "<group>"; };
 		BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lista_entidades.cpp; sourceTree = "<group>"; };
 		BE3F7D5630AA55F200F7B08E /* lista_entidades.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista_entidades.h; sourceTree = "<group>"; };
 		BE59792930ACA76B00AD4633 /* jogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jogo.h; sourceTree = "<group>"; };
@@ -97,8 +96,8 @@
 		BEC2CE8930978773003D4604 /* obstaculos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstaculos.cpp; sourceTree = "<group>"; };
 		BEC2CE8A30978773003D4604 /* personagem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = personagem.h; sourceTree = "<group>"; };
 		BEC2CE8B30978773003D4604 /* personagem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = personagem.cpp; sourceTree = "<group>"; };
-		BEC2CE8C30978773003D4604 /* masmora.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = masmora.h; sourceTree = "<group>"; };
-		BEC2CE8D30978773003D4604 /* masmora.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = masmora.cpp; sourceTree = "<group>"; };
+		BEC2CE8C30978773003D4604 /* masmorra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = masmorra.h; sourceTree = "<group>"; };
+		BEC2CE8D30978773003D4604 /* masmorra.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = masmorra.cpp; sourceTree = "<group>"; };
 		BEC2CE8E30978773003D4604 /* projetil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = projetil.h; sourceTree = "<group>"; };
 		BEC2CE8F30978773003D4604 /* projetil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = projetil.cpp; sourceTree = "<group>"; };
 		BEC2CE9030978773003D4604 /* castelo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = castelo.h; sourceTree = "<group>"; };
@@ -136,8 +135,8 @@
 				BEF2D5F2309BE6E700DCD2A3 /* imagens */,
 				BEF2D5E8309BE66A00DCD2A3 /* fase.cpp */,
 				BEC2CE8430978773003D4604 /* fase.h */,
-				BEC2CE8D30978773003D4604 /* masmora.cpp */,
-				BEC2CE8C30978773003D4604 /* masmora.h */,
+				BEC2CE8D30978773003D4604 /* masmorra.cpp */,
+				BEC2CE8C30978773003D4604 /* masmorra.h */,
 				BEC2CE9130978773003D4604 /* castelo.cpp */,
 				BEC2CE9030978773003D4604 /* castelo.h */,
 				BE1F082A30AB8C2700682346 /* chao.h */,
@@ -145,7 +144,6 @@
 				BEC2CE8630978773003D4604 /* menu.h */,
 				BEC2CE8730978773003D4604 /* menu.cpp */,
 				BE3F7D5330AA557A00F7B08E /* lista.h */,
-				BE3F7D5430AA55C600F7B08E /* elemento.h */,
 				BE3F7D5630AA55F200F7B08E /* lista_entidades.h */,
 				BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */,
 				BEC2CE8830978773003D4604 /* obstaculos.h */,

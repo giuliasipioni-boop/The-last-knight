@@ -5,7 +5,7 @@ namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
 
-Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pontosJog(0),direcao(0) {
+Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pontosJog(0),direcao(1) {
     
     if (pGG != 0) {
         if (nJog == 1) {
@@ -17,12 +17,12 @@ Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pon
     }
 }
 
-Jogador::~Jogador() {
+Jogador::~Jogador(){
 }
 
 void Jogador::setDirecao(int direcao) {
     this->direcao = direcao;
-    velX = 250.f * direcao;
+    velX = 250.0 * direcao;
 }
 
 void Jogador::atacar() {

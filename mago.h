@@ -9,6 +9,8 @@ namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
 
+class Jogador;
+
 class Mago : public Inimigo {
 private:
     int direcao;
@@ -20,6 +22,10 @@ public:
 
     void mover();
     void inverterDirecao();
+    void executar();
+    void danificar(Jogador* pJog);
+    void salvar();
+    
 };
 
 }

@@ -6,6 +6,7 @@
 #include "esqueleto.h"
 #include "mago.h"
 #include "rei.h"
+#include "projetil.h"
 #include "gerenciador_eventos.h"
 #include "gerenciador_colisoes.h"
 #include "lista_entidades.h"
@@ -28,18 +29,17 @@ void Jogo::executar() {
     // Personagens
     Jogador jogador(100.f, 300.f, 1);
     Esqueleto esqueleto(900.f, 300.f);
-    Mago mago(900.f, 300.f);
-    Rei rei(900.f, 300.f);
-
+   // Mago mago(900.f, 300.f);
+    
     pJog1 = &jogador;
 
     // Escalas que ja estavam funcionando
     esqueleto.setEscala(0.80f);
-    mago.setEscala(0.75f);
+   // mago.setEscala(0.75f);
     rei.setEscala(0.40f);
 
     // Mago persegue o jogador
-    mago.setJogadores(&jogador, 0);
+    //mago.setJogadores(&jogador, 0);
     rei.setJogadores(&jogador, 0);
 
     // Gerenciador de eventos
@@ -50,14 +50,14 @@ void Jogo::executar() {
 
     colisoes.setLimites(1280.f, 620.f);
     colisoes.incluirInimigo(&esqueleto);
-    colisoes.incluirInimigo(&mago);
+    //colisoes.incluirInimigo(&mago);
     colisoes.incluirInimigo(&rei);
 
     // Lista de entidades
     Listas::ListaEntidades entidades;
     entidades.incluir(&jogador);
     entidades.incluir(&esqueleto);
-    entidades.incluir(&mago);
+    //entidades.incluir(&mago);
     entidades.incluir(&rei);
 
     //Chao
@@ -87,7 +87,7 @@ void Jogo::executar() {
         // 2. Atualiza o tempo
         jogador.setTempo(dt);
         esqueleto.setTempo(dt);
-        mago.setTempo(dt);
+        //mago.setTempo(dt);
         rei.setTempo(dt);
         colisoes.setTempo(dt);
 
@@ -108,10 +108,15 @@ void Jogo::executar() {
         else if (esqueleto.getVelocidadeX() < 0)
             esqueleto.virar(false);
 
-        if (mago.getVelocidadeX() > 0)
+       /* if (mago.getVelocidadeX() > 0)
             mago.virar(true);
         else if (mago.getVelocidadeX() < 0)
-            mago.virar(false);
+            mago.virar(false);*/
+        
+        if(rei.getVelocidadeX()>0)
+            rei.virar(true);
+        else if (rei.getVelocidadeX()<0)
+            rei.virar(false);
 
         // 6. Desenho
         grafico.iniciarImagJogo();

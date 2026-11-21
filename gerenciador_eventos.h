@@ -23,7 +23,7 @@ private:
 
 public:
     //construtora e destrutora
-    Gerenciador_eventos(sf::RenderWindow* janela, Entidades::Personagens::Jogador* jog1, Entidades::Personagens::Jogador* jog2 = 0);
+    Gerenciador_eventos(sf::RenderWindow* janela, Entidades::Personagens::Jogador* jog1 = 0, Entidades::Personagens::Jogador* jog2 = 0);
     ~Gerenciador_eventos();
 
     void executar();
