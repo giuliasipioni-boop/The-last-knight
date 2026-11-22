@@ -1,18 +1,18 @@
-#ifndef _OBSTACULOS_H_
-#define _OBSTACULOS_H_
+#ifndef _OBSTACULO_H_
+#define _OBSTACULO_H_
 
 #include "Entidade.h"
 namespace TrabalhoJogo{
 namespace Entidades{
 namespace Obstaculos{
 
-class Obstaculos : public Entidade {
+class Obstaculo : public Entidade {
 protected:
     bool danoso;
     
 public:
-    Obstaculos(float x, float y, bool danoso);
-    virtual ~Obstaculos();
+    Obstaculo(float x, float y, bool danoso);
+    virtual ~Obstaculo();
     
     virtual void executar() = 0;
     virtual void salvar() = 0;

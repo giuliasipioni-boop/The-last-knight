@@ -1,4 +1,4 @@
-#include "lista_entidades.h"
+#include "listaEntidades.h"
 #include "personagem.h"
 #include "projetil.h"
 

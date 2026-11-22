@@ -67,6 +67,10 @@ void Rei::danificar(Jogador* pJog){
     }
 }
 
+void Rei::salvar(){
+    //fazer salvamento dps
+}
+
 
 }
 }

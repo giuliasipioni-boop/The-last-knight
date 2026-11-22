@@ -23,6 +23,16 @@ Jogador::~Jogador(){
 void Jogador::setDirecao(int direcao) {
     this->direcao = direcao;
     velX = 250.0 * direcao;
+    
+    
+    if (velX < 0.0) {
+        virar(false);
+    }
+    else if (velX > 0.0) {
+        virar(true);
+    }
+    
+    
 }
 
 void Jogador::atacar() {

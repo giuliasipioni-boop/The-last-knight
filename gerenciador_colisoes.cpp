@@ -43,7 +43,7 @@ sf::FloatRect Gerenciador_colisoes::getLimites(const Entidade* pE) const {
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
+// Codigo do Peteco 
 bool Gerenciador_colisoes::verificarColisao(const Entidade* pe1,const Entidade* pe2) const {
                                                 
     if (pe1 == 0 || pe2 == 0) {
@@ -118,98 +118,58 @@ void Gerenciador_colisoes::setTempo(float dt) {
 // Impede personagens de sairem da janela.
 // O Esqueleto inverte a direcao ao atingir as bordas.
 void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
-    
+
     if (pP == 0 || pP->morto()) {
         return;
     }
-    
-    // Limites provisórios do Esqueleto
-   
-    Esqueleto* pEsqueleto = dynamic_cast<Esqueleto*>(pP);
 
-    if (pEsqueleto != 0) {
-
-        float x = pEsqueleto->getPosicaoX();
-        float velocidade = pEsqueleto->getVelocidadeX();
-
-        // Chegou na parede esquerda
-        if (x <= 50.f && velocidade < 0.f) {
-            pEsqueleto->inverterDirecao();
-            pEsqueleto->setPosicao(
-                55.f,
-                pEsqueleto->getPosicaoY()
-            );
-        }
-
-        // Chegou na parede direita
-        else if (x >= 1150.f && velocidade > 0.f) {
-            pEsqueleto->inverterDirecao();
-            pEsqueleto->setPosicao(1145.f,pEsqueleto->getPosicaoY());
-        }
-
-        return;
-    }
-
-    sf::FloatRect limites = getLimites(pP);
-    
     float x = pP->getPosicaoX();
     float y = pP->getPosicaoY();
-    
-    float vx = pP->getVelocidadeX();
-    float vy = pP->getVelocidadeY();
-    
-    bool bateuLado = false;
-    
-    // Limite esquerdo
-    if (limites.left < 0.f) {
-        
-        x -= limites.left;
-        
-        if (vx < 0.f) {
-            bateuLado = true;
-        }
-    }
-    
-    // Limite direito
-    else if (limites.left + limites.width > larguraTela) {
-                 
-                 float excesso =limites.left + limites.width - larguraTela;
-                 
-                 x -= excesso;
-                 
-                 if (vx > 0.f) {
-                     bateuLado = true;
-                 }
-             }
-    
-    // Limite superior
-    if (limites.top < 0.f) {
-        
-        y -= limites.top;
-        
-        if (vy < 0.f) {
-            vy = 0.f;
-        }
-    }
-    
-    pP->setPosicao(x, y);
-    pP->setVelocidade(vx, vy);
-    
-    // Comportamento do Esqueleto do nosso jogo
-    if (bateuLado) {
-        
-        Esqueleto* pEsqueleto = dynamic_cast<Esqueleto*>(pP);
-        
-        if (pEsqueleto != 0) {
+    float velocidade = pP->getVelocidadeX();
+
+    const float limiteEsquerdo = 100.f;
+    const float limiteDireito = 1050.f;
+
+    Esqueleto* pEsqueleto = dynamic_cast<Esqueleto*>(pP);
+
+    // Parede esquerda
+    if (x <= limiteEsquerdo) {
+
+        if (pEsqueleto != 0 && velocidade < 0.f) {
             pEsqueleto->inverterDirecao();
+            pP->setPosicao(limiteEsquerdo + 5.f, y);
         }
-        
+        else if (x < limiteEsquerdo) {
+            pP->setPosicao(limiteEsquerdo, y);
+        }
+    }
+
+    // Parede direita
+    else if (x >= limiteDireito) {
+
+        if (pEsqueleto != 0 && velocidade > 0.f) {
+            pEsqueleto->inverterDirecao();
+            pP->setPosicao(limiteDireito - 5.f, y);
+        }
+        else if (x > limiteDireito) {
+            pP->setPosicao(limiteDireito, y);
+        }
+    }
+
+    // Limite superior
+    if (y < 0.f) {
+        pP->setPosicao(pP->getPosicaoX(), 0.f);
+
+        if (pP->getVelocidadeY() < 0.f) {
+            pP->setVelocidade(
+                pP->getVelocidadeX(), 0.f
+            );
+        }
     }
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
-// Colisao entre jogadores e o chao.
+// Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::tratarColisoesChaoJogadores() {
     
     Jogador* jogadores[2] = {
@@ -241,8 +201,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesChaoJogadores() {
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
-// Colisao entre inimigos e o chao.
+// Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::tratarColisoesChaoInimigos() {
     
     float yChao = topoChao;
@@ -270,9 +229,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesChaoInimigos() {
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
-// Por enquanto, trata os limites da janela.
-// Os obstaculos serao integrados depois.
+// Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsObstacs() {
     verificarLimites(pJog1);
     verificarLimites(pJog2);
@@ -285,11 +242,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsObstacs() {
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
-// Percorre o vector de inimigos e verifica
-// as colisoes com os jogadores.
-
-
+// Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsInimgs() {
 
     for (unsigned int i = 0; i < LIs.size(); i++) {
@@ -310,9 +263,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsInimgs() {
         areaInim.height *= 0.60f;
 
         // Jogador 1
-        if (pJog1 != 0 &&
-            !pJog1->morto() &&
-            tempoDano1 <= 0.f) {
+        if (pJog1 != 0 && !pJog1->morto() && tempoDano1 <= 0.f) {
 
             sf::FloatRect areaJog = getLimites(pJog1);
 
@@ -324,14 +275,12 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsInimgs() {
 
             if (areaJog.intersects(areaInim)) {
                 pInim->danificar(pJog1);
-                tempoDano1 = 1.f;
+                tempoDano1 = 2.f;
             }
         }
 
         // Jogador 2
-        if (pJog2 != 0 &&
-            !pJog2->morto() &&
-            tempoDano2 <= 0.f) {
+        if (pJog2 != 0 && !pJog2->morto() && tempoDano2 <= 0.f) {
 
             sf::FloatRect areaJog = getLimites(pJog2);
 
@@ -343,7 +292,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsInimgs() {
 
             if (areaJog.intersects(areaInim)) {
                 pInim->danificar(pJog2);
-                tempoDano2 = 1.f;
+                tempoDano2 = 2.f;
             }
         }
     }
@@ -358,8 +307,7 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsProjeteis() {
 }
 
 
-// Codigo do Peteco - adaptado para The Last Knight.
-// Organiza as verificacoes a cada quadro.
+// Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::executar() {
     
     if (tempoDano1 > 0.f) {

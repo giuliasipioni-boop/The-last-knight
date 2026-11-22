@@ -52,13 +52,12 @@ void Ente::virar(bool direita) {
     float escala = figura.getScale().y;
 
     if (direita) {
-        figura.setOrigin(0.0, 0.0);
         figura.setScale(escala, escala);
     }
     else {
-        figura.setOrigin(figura.getLocalBounds().width, 0.0);
         figura.setScale(-escala, escala);
     }
 }
+
 
 }

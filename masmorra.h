@@ -1,9 +1,30 @@
 #ifndef _PRIMEIRAFASE_H_
 #define _PRIMEIRAFASE_H_
 #include "stdafx.h"
+#include "fase.h"
 
-class PrimeiraFase : public Fase {
+namespace TrabalhoJogo {
+namespace Fases{
 
+class Masmorra : public Fase {
+private:
+    const int MaxMagos;
+    
+public:
+    //construtora e destrutora
+    Masmorra();
+    ~Masmorra();
+    
+    void criarInimigos();
+    void criarObstaculos();
+    
+    void criarMagos();
+    void criarBaril();
+    
+    void executar();
+};
+
+}
 }
 
 #endif

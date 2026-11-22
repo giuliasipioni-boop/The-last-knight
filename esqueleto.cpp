@@ -6,11 +6,14 @@ namespace Entidades {
 namespace Personagens {
 
 Esqueleto::Esqueleto(float x, float y): Inimigo(x, y, 1, 1), direcao(-1) {
-    velX = -80.0;
+    velX = -60.0;
 
     if (pGG != 0) {
         pGG->aplicarTextura(this, "esqueleto");
     }
+    
+    virar(false);
+    
 }
 
 Esqueleto::~Esqueleto() {
@@ -18,7 +21,7 @@ Esqueleto::~Esqueleto() {
 
 void Esqueleto::mover() {
 
-    velX = 80.0 * direcao;
+    velX = 60.0 * direcao;
 
     aplicarFisica();
 
@@ -26,6 +29,7 @@ void Esqueleto::mover() {
 
 void Esqueleto::inverterDirecao() {
     direcao *= -1;
+    virar(direcao == 1);
 }
 
 void Esqueleto::executar(){
@@ -43,7 +47,7 @@ void Esqueleto::danificar(Jogador* pJog){
 }
 
 void Esqueleto::salvar(){
-    //fazer o salvamento
+    //fazer salvamento dps
 }
 
 

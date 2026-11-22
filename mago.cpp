@@ -6,7 +6,7 @@ namespace Entidades {
 namespace Personagens {
 
 Mago::Mago(float x, float y): Inimigo(x, y, 2, 2), direcao(-1){
-    velX = -110.0;
+    velX = -80.0;
 
     if (pGG != 0) {
         pGG->aplicarTextura(this, "mago");
@@ -38,14 +38,22 @@ void Mago::mover() {
     else {
         direcao = 0;
     }
+    
+    if (velX < 0.0) {
+        virar(false);
+    }
+    else if (velX > 0.0) {
+        virar(true);
+    }
 
-    velX = 100.f * direcao;
+    velX = 80.0 * direcao;
 
     aplicarFisica();
 }
 
 void Mago::inverterDirecao() {
     direcao *= -1;
+    
 }
 
 void Mago::executar() {
@@ -63,7 +71,7 @@ void Mago::danificar(Jogador* pJog){
 }
 
 void Mago::salvar(){
-    //fazer o salvamento 
+    //fazer salvamento dps
 }
 
 }
