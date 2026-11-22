@@ -1,6 +1,6 @@
 
-#ifndef LISTA_ENTIDADES_H
-#define LISTA_ENTIDADES_H
+#ifndef LISTAENTIDADES_H
+#define LISTAENTIDADES_H
 
 #include "lista.h"
 #include "entidade.h"

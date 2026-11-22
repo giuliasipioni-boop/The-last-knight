@@ -15,7 +15,7 @@
 		BE59792830ABD15100AD4633 /* rei.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4B30AA4E5200F7B08E /* rei.cpp */; };
 		BE59792B30ACA77300AD4633 /* jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE59792A30ACA77200AD4633 /* jogo.cpp */; };
 		BE59792C30ACA9F800AD4633 /* gerenciador_colisoes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE9930978797003D4604 /* gerenciador_colisoes.cpp */; };
-		BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */; };
+		BE59792D30ACAA0900AD4633 /* listaEntidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D5530AA55DA00F7B08E /* listaEntidades.cpp */; };
 		BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */; };
 		BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8F30978773003D4604 /* projetil.cpp */; };
 		BE59793030ACDA5900AD4633 /* chao.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE1F082B30AB8C2D00682346 /* chao.cpp */; };
@@ -25,6 +25,9 @@
 		BEC2CEA830981C24003D4604 /* jogador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CEA730981C24003D4604 /* jogador.cpp */; };
 		BEC2CEA930982048003D4604 /* personagem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8B30978773003D4604 /* personagem.cpp */; };
 		BEC2CEAA3098205E003D4604 /* entidade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816DA2308D663700918761 /* entidade.cpp */; };
+		BEC8921030B36C1E00D20AA9 /* masmorra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8D30978773003D4604 /* masmorra.cpp */; };
+		BEC8921130B36C2200D20AA9 /* fase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF2D5E8309BE66A00DCD2A3 /* fase.cpp */; };
+		BEC8921230B36C2C00D20AA9 /* obstaculo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8930978773003D4604 /* obstaculo.cpp */; };
 		BEF2D5F3309BE6E700DCD2A3 /* garras.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF2D5ED309BE6E700DCD2A3 /* garras.png */; };
 		BEF2D5F4309BE6E700DCD2A3 /* fundo.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF2D5EC309BE6E700DCD2A3 /* fundo.png */; };
 		BEF2D5F6309BE6E700DCD2A3 /* mago.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF2D5EF309BE6E700DCD2A3 /* mago.png */; };
@@ -51,8 +54,8 @@
 		BE3F7D4F30AA54B900F7B08E /* fogueira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fogueira.png; sourceTree = "<group>"; };
 		BE3F7D5030AA54B900F7B08E /* projetil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projetil.png; sourceTree = "<group>"; };
 		BE3F7D5330AA557A00F7B08E /* lista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
-		BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = lista_entidades.cpp; sourceTree = "<group>"; };
-		BE3F7D5630AA55F200F7B08E /* lista_entidades.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista_entidades.h; sourceTree = "<group>"; };
+		BE3F7D5530AA55DA00F7B08E /* listaEntidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = listaEntidades.cpp; sourceTree = "<group>"; };
+		BE3F7D5630AA55F200F7B08E /* listaEntidades.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = listaEntidades.h; sourceTree = "<group>"; };
 		BE59792930ACA76B00AD4633 /* jogo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jogo.h; sourceTree = "<group>"; };
 		BE59792A30ACA77200AD4633 /* jogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jogo.cpp; sourceTree = "<group>"; };
 		BE816D67308D633100918761 /* the last knight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the last knight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,8 +95,8 @@
 		BEC2CE8430978773003D4604 /* fase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fase.h; sourceTree = "<group>"; };
 		BEC2CE8630978773003D4604 /* menu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = menu.h; sourceTree = "<group>"; };
 		BEC2CE8730978773003D4604 /* menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = menu.cpp; sourceTree = "<group>"; };
-		BEC2CE8830978773003D4604 /* obstaculos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = obstaculos.h; sourceTree = "<group>"; };
-		BEC2CE8930978773003D4604 /* obstaculos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstaculos.cpp; sourceTree = "<group>"; };
+		BEC2CE8830978773003D4604 /* obstaculo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = obstaculo.h; sourceTree = "<group>"; };
+		BEC2CE8930978773003D4604 /* obstaculo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = obstaculo.cpp; sourceTree = "<group>"; };
 		BEC2CE8A30978773003D4604 /* personagem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = personagem.h; sourceTree = "<group>"; };
 		BEC2CE8B30978773003D4604 /* personagem.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = personagem.cpp; sourceTree = "<group>"; };
 		BEC2CE8C30978773003D4604 /* masmorra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = masmorra.h; sourceTree = "<group>"; };
@@ -144,10 +147,10 @@
 				BEC2CE8630978773003D4604 /* menu.h */,
 				BEC2CE8730978773003D4604 /* menu.cpp */,
 				BE3F7D5330AA557A00F7B08E /* lista.h */,
-				BE3F7D5630AA55F200F7B08E /* lista_entidades.h */,
-				BE3F7D5530AA55DA00F7B08E /* lista_entidades.cpp */,
-				BEC2CE8830978773003D4604 /* obstaculos.h */,
-				BEC2CE8930978773003D4604 /* obstaculos.cpp */,
+				BE3F7D5630AA55F200F7B08E /* listaEntidades.h */,
+				BE3F7D5530AA55DA00F7B08E /* listaEntidades.cpp */,
+				BEC2CE8830978773003D4604 /* obstaculo.h */,
+				BEC2CE8930978773003D4604 /* obstaculo.cpp */,
 				BEC2CE8A30978773003D4604 /* personagem.h */,
 				BEC2CE8B30978773003D4604 /* personagem.cpp */,
 				BEC2CEA630981C24003D4604 /* jogador.h */,
@@ -470,10 +473,13 @@
 		BE816D62308D633100918761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				BEC8921230B36C2C00D20AA9 /* obstaculo.cpp in Sources */,
+				BEC8921130B36C2200D20AA9 /* fase.cpp in Sources */,
+				BEC8921030B36C1E00D20AA9 /* masmorra.cpp in Sources */,
 				BE59793030ACDA5900AD4633 /* chao.cpp in Sources */,
 				BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */,
 				BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */,
-				BE59792D30ACAA0900AD4633 /* lista_entidades.cpp in Sources */,
+				BE59792D30ACAA0900AD4633 /* listaEntidades.cpp in Sources */,
 				BE59792C30ACA9F800AD4633 /* gerenciador_colisoes.cpp in Sources */,
 				BE59792830ABD15100AD4633 /* rei.cpp in Sources */,
 				BE59792730ABD14900AD4633 /* mago.cpp in Sources */,

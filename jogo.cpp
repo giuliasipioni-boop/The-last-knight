@@ -1,75 +1,42 @@
-
 #include "jogo.h"
-
 #include "ente.h"
-#include "jogador.h"
-#include "esqueleto.h"
-#include "mago.h"
-#include "rei.h"
-#include "projetil.h"
-#include "gerenciador_eventos.h"
-#include "gerenciador_colisoes.h"
-#include "lista_entidades.h"
-#include "chao.h"
 
 namespace TrabalhoJogo {
 
-using namespace Entidades::Personagens;
-using namespace Gerenciadores;
+Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pMasmorra(nullptr) {
+    
+    Ente::setGG(&GG);
 
-Jogo::Jogo():pJog1(0) {
-    Ente::setGG(&grafico);
+    // Criacao dos jogadores
+    pJog1 = new Entidades::Personagens::Jogador(100.0, 300.0, 1);
+    pJog2 = new Entidades::Personagens::Jogador(200.0, 350.0, 2);
+    /*if (quantidadeJogadores == 2) {
+        pJog2 = new Entidades::Personagens::Jogador(200.0, 450.0, 2);
+    }*/
+    
+    // Gerenciador de eventos
+    GE = new Gerenciadores::Gerenciador_eventos(&GG.getJanela(),pJog1,pJog2);
+
+    // Primeira fase
+    pMasmorra = new Fases::Masmorra();
+
+    pMasmorra->setJogadores(pJog1, pJog2);
 }
 
 Jogo::~Jogo() {
+
+    delete GE;
+    delete pMasmorra;
+
+    delete pJog1;
+    delete pJog2;
+
+    Ente::setGG(nullptr);
 }
 
 void Jogo::executar() {
 
-    // Personagens
-    Jogador jogador(100.f, 300.f, 1);
-    Esqueleto esqueleto(900.f, 300.f);
-   // Mago mago(900.f, 300.f);
-    
-    pJog1 = &jogador;
-
-    // Escalas que ja estavam funcionando
-    esqueleto.setEscala(0.80f);
-   // mago.setEscala(0.75f);
-    rei.setEscala(0.40f);
-
-    // Mago persegue o jogador
-    //mago.setJogadores(&jogador, 0);
-    rei.setJogadores(&jogador, 0);
-
-    // Gerenciador de eventos
-    Gerenciador_eventos eventos(&grafico.getJanela(),&jogador,0);
-
-    // Gerenciador de colisoes
-    Gerenciador_colisoes colisoes(&jogador,0);
-
-    colisoes.setLimites(1280.f, 620.f);
-    colisoes.incluirInimigo(&esqueleto);
-    //colisoes.incluirInimigo(&mago);
-    colisoes.incluirInimigo(&rei);
-
-    // Lista de entidades
-    Listas::ListaEntidades entidades;
-    entidades.incluir(&jogador);
-    entidades.incluir(&esqueleto);
-    //entidades.incluir(&mago);
-    entidades.incluir(&rei);
-
-    //Chao
-    Entidades::Chao chao(0.f, 620.f, 1280.f, 100.f);
-    // Retangulo usado somente para colisao
-    sf::RectangleShape areaChao(sf::Vector2f(1280.f, 100.f));
-    areaChao.setPosition(0.f, 620.f);
-    colisoes.incluirChao(&areaChao);
-    
-    sf::Clock relogio;
-
-    while (grafico.jogoAberto()) {
+    while (GG.jogoAberto()) {
 
         float dt = relogio.restart().asSeconds();
 
@@ -77,54 +44,43 @@ void Jogo::executar() {
             dt = 0.05f;
         }
 
-        // 1. Eventos do teclado
-        eventos.executar();
+        GE->executar();
 
-        if (!grafico.jogoAberto()) {
+        if (!GG.jogoAberto()) {
             break;
         }
 
-        // 2. Atualiza o tempo
-        jogador.setTempo(dt);
-        esqueleto.setTempo(dt);
-        //mago.setTempo(dt);
-        rei.setTempo(dt);
-        colisoes.setTempo(dt);
+        pJog1->setTempo(dt);
+        pJog2->setTempo(dt);
 
-        // 3. Movimentacao das entidades
-        entidades.percorrer();
+        pMasmorra->setTempo(dt);
 
-        // 4. Colisoes
-        colisoes.executar();
+        pJog1->executar();
 
-        // 5. Direcao dos sprites
-        if (jogador.getVelocidadeX() > 0)
-            jogador.virar(true);
-        else if (jogador.getVelocidadeX() < 0)
-            jogador.virar(false);
+        if (pJog2 != nullptr) {
+            pJog2->executar();
+        }
 
-        if (esqueleto.getVelocidadeX() > 0)
-            esqueleto.virar(true);
-        else if (esqueleto.getVelocidadeX() < 0)
-            esqueleto.virar(false);
-
-       /* if (mago.getVelocidadeX() > 0)
-            mago.virar(true);
-        else if (mago.getVelocidadeX() < 0)
-            mago.virar(false);*/
+        pMasmorra->executar();
         
-        if(rei.getVelocidadeX()>0)
-            rei.virar(true);
-        else if (rei.getVelocidadeX()<0)
-            rei.virar(false);
+        
+        // GAME OVERd
+        // Quando os dois jogadores morrerem
+        if (pJog1->morto() &&(pJog2 == nullptr || pJog2->morto())) {
 
-        // 6. Desenho
-        grafico.iniciarImagJogo();
-        entidades.desenhar();
-        grafico.mostrarJogo();
+            //voltar ao menu quando tiver o menu pronto
+            
+            break;
+        }
+
+        GG.iniciarImagJogo();
+
+        pMasmorra->desenharEntidades();
+
+        pJog1->desenhar();
+        pJog2->desenhar();
+
+        GG.mostrarJogo();
     }
-
-    pJog1 = 0;
 }
-
 }

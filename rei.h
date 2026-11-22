@@ -8,6 +8,8 @@ namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
 
+class Jogador;
+
 class Rei : public Inimigo {
 private:
     int direcao;
