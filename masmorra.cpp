@@ -47,7 +47,8 @@ void Masmorra::criarMagos() {
 }
 
 void Masmorra::criarObstaculos() {
-
+    
+    criarPlataformas();
     criarBaril();
 }
 

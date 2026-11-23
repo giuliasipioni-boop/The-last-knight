@@ -39,14 +39,15 @@ void Mago::mover() {
         direcao = 0;
     }
     
+    velX = 80.0 * direcao;
+    
+    
     if (velX < 0.0) {
         virar(false);
     }
     else if (velX > 0.0) {
         virar(true);
     }
-
-    velX = 80.0 * direcao;
 
     aplicarFisica();
 }

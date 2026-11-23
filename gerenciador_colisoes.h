@@ -71,6 +71,7 @@ public:
     void tratarColisoesChaoJogadores();
     void tratarColisoesChaoInimigos();
 
+    void tratarAtaques();
     void executar();
 };
 

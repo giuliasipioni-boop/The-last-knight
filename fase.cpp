@@ -7,8 +7,8 @@
 namespace TrabalhoJogo {
 namespace Fases {
 
-Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(6),pJog1(nullptr),pJog2(nullptr) {
-    GC.setLimites(1280.f, 620.f);
+Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(6),pJog1(nullptr),pJog2(nullptr),pontos(-1), totalInimigos(-1), pontuacao(-1.0){
+    GC.setLimites(1280.0, 620.0);
 }
 
 Fase::~Fase() {
@@ -25,6 +25,7 @@ void Fase::adicionarEntidade(Entidades::Entidade* pE) {
     if (pE != nullptr) {
         entidades.push_back(pE);
         lista_ents.incluir(pE);
+        
     }
 }
 
@@ -46,6 +47,8 @@ void Fase::setJogadores(Entidades::Personagens::Jogador* jog1,Entidades::Persona
 }
 
 void Fase::setTempo(float dt) {
+    
+    tempoTotal +=dt;
 
     GC.setTempo(dt);
 
@@ -66,11 +69,15 @@ void Fase::desenharEntidades() {
         Entidades::Entidade* pE =lista_ents[static_cast<int>(i)];
 
         if (pE != nullptr) {
-            pE->desenhar();
+
+            Entidades::Personagens::Personagem* pP = dynamic_cast<Entidades::Personagens::Personagem*>(pE);
+
+            if (pP == nullptr || !pP->morto()) {
+                pE->desenhar();
+            }
         }
     }
 }
-
 // Cria os esqueletos comuns as fases
 void Fase::criarEsqueletos() {
 
@@ -129,6 +136,44 @@ void Fase::criarCenario() {
     criarPlataformas();
 }
 
+
+void Fase::operator++(){
+    pontos++;
+}
+
+void Fase::calcularPontos(float tempoTotal){
+    
+    pontos = 0;
+    totalInimigos = 0;
+    pontuacao = 0;
+    
+    
+    for (size_t i = 0; i < entidades.size(); i++) {
+
+            Entidades::Personagens::Inimigo* pI = dynamic_cast<Entidades::Personagens::Inimigo*>(entidades[i]);
+
+            if (pI != nullptr) {
+                totalInimigos++;
+
+                if (pI->morto()) {
+                    operator++();
+                }
+            }
+        }
+
+
+        float pontuacao = (pontos * 1000.0) /(totalInimigos * tempoTotal);
+
+        if (pJog2 != nullptr) {
+            pontuacao /= 2;
+        }
+    }
+
+float Fase::getPontos(){
+    return pontuacao;
+}
+    
+    
 }
 }
 

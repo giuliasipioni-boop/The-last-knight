@@ -11,8 +11,9 @@ namespace Personagens {
 class Jogador : public Personagem{
 private:
     int nJog;
-    int pontosJog;
     int direcao;
+    bool atacando;
+    int ladoAtaque;
     
 public:
     //construtora e destrutora
@@ -20,7 +21,9 @@ public:
     virtual ~Jogador();
     
     void setDirecao(int direcao);
-    void atacar();
+    void setAtacando(bool atacando);
+    bool estaAtacando() const;
+    int getLadoAtaque() const;
     void mover();
     void executar();
     void salvar();

@@ -14,13 +14,16 @@ protected:
     Gerenciadores::Gerenciador_colisoes GC;
     
     const int MaxEsqueletos;
+    int pontos;
+    int totalInimigos;
+    float pontuacao;
+    float tempoTotal;
     
     std::vector<Entidades::Entidade*> entidades;
 
     Entidades::Personagens::Jogador* pJog1;
     Entidades::Personagens::Jogador* pJog2;
 
-    
     void criarEsqueletos();
     void criarPlataformas();
     void criarCenario();
@@ -38,6 +41,9 @@ public:
     void setJogadores(Entidades::Personagens::Jogador* jog1,Entidades::Personagens::Jogador* jog2);
     void setTempo(float dt);
     void desenharEntidades();
+    void operator++();
+    void calcularPontos(float tempoTotal);
+    float getPontos();
 
     
     virtual void executar() = 0;
