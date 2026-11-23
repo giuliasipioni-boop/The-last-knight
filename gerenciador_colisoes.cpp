@@ -127,17 +127,17 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
     float y = pP->getPosicaoY();
     float velocidade = pP->getVelocidadeX();
 
-    const float limiteEsquerdo = 100.f;
-    const float limiteDireito = 1050.f;
+    const float limiteEsquerdo = 100.0;
+    const float limiteDireito = 1150.0;
 
     Esqueleto* pEsqueleto = dynamic_cast<Esqueleto*>(pP);
 
     // Parede esquerda
     if (x <= limiteEsquerdo) {
 
-        if (pEsqueleto != 0 && velocidade < 0.f) {
+        if (pEsqueleto != 0 && velocidade < 0.0) {
             pEsqueleto->inverterDirecao();
-            pP->setPosicao(limiteEsquerdo + 5.f, y);
+            pP->setPosicao(limiteEsquerdo + 5.0, y);
         }
         else if (x < limiteEsquerdo) {
             pP->setPosicao(limiteEsquerdo, y);
@@ -147,9 +147,9 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
     // Parede direita
     else if (x >= limiteDireito) {
 
-        if (pEsqueleto != 0 && velocidade > 0.f) {
+        if (pEsqueleto != 0 && velocidade > 0.0) {
             pEsqueleto->inverterDirecao();
-            pP->setPosicao(limiteDireito - 5.f, y);
+            pP->setPosicao(limiteDireito - 5.0, y);
         }
         else if (x > limiteDireito) {
             pP->setPosicao(limiteDireito, y);
@@ -158,12 +158,10 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
 
     // Limite superior
     if (y < 0.f) {
-        pP->setPosicao(pP->getPosicaoX(), 0.f);
+        pP->setPosicao(pP->getPosicaoX(), 0.0);
 
-        if (pP->getVelocidadeY() < 0.f) {
-            pP->setVelocidade(
-                pP->getVelocidadeX(), 0.f
-            );
+        if (pP->getVelocidadeY() < 0.0) {
+            pP->setVelocidade(pP->getVelocidadeX(), 0.0);
         }
     }
 }
@@ -172,10 +170,7 @@ void Gerenciador_colisoes::verificarLimites(Personagem* pP) {
 // Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::tratarColisoesChaoJogadores() {
     
-    Jogador* jogadores[2] = {
-        pJog1,
-        pJog2
-    };
+    Jogador* jogadores[2] = {pJog1,pJog2};
     
     float yChao = topoChao;
     
@@ -256,43 +251,43 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsInimgs() {
         // Area de colisao reduzida do inimigo
         sf::FloatRect areaInim = getLimites(pInim);
 
-        areaInim.left += areaInim.width * 0.30f;
-        areaInim.width *= 0.40f;
+        areaInim.left += areaInim.width * 0.30;
+        areaInim.width *= 0.40;
 
-        areaInim.top += areaInim.height * 0.20f;
-        areaInim.height *= 0.60f;
+        areaInim.top += areaInim.height * 0.20;
+        areaInim.height *= 0.60;
 
         // Jogador 1
-        if (pJog1 != 0 && !pJog1->morto() && tempoDano1 <= 0.f) {
+        if (pJog1 != 0 && !pJog1->morto() && tempoDano1 <= 0.0) {
 
             sf::FloatRect areaJog = getLimites(pJog1);
 
-            areaJog.left += areaJog.width * 0.30f;
-            areaJog.width *= 0.40f;
+            areaJog.left += areaJog.width * 0.30;
+            areaJog.width *= 0.40;
 
-            areaJog.top += areaJog.height * 0.20f;
-            areaJog.height *= 0.60f;
+            areaJog.top += areaJog.height * 0.20;
+            areaJog.height *= 0.60;
 
             if (areaJog.intersects(areaInim)) {
                 pInim->danificar(pJog1);
-                tempoDano1 = 2.f;
+                tempoDano1 = 2.0;
             }
         }
 
         // Jogador 2
-        if (pJog2 != 0 && !pJog2->morto() && tempoDano2 <= 0.f) {
+        if (pJog2 != 0 && !pJog2->morto() && tempoDano2 <= 0.0) {
 
             sf::FloatRect areaJog = getLimites(pJog2);
 
-            areaJog.left += areaJog.width * 0.30f;
-            areaJog.width *= 0.40f;
+            areaJog.left += areaJog.width * 0.30;
+            areaJog.width *= 0.40;
 
-            areaJog.top += areaJog.height * 0.20f;
-            areaJog.height *= 0.60f;
+            areaJog.top += areaJog.height * 0.20;
+            areaJog.height *= 0.60;
 
             if (areaJog.intersects(areaInim)) {
                 pInim->danificar(pJog2);
-                tempoDano2 = 2.f;
+                tempoDano2 = 2.0;
             }
         }
     }
@@ -307,14 +302,61 @@ void Gerenciadores::Gerenciador_colisoes::tratarColisoesJogsProjeteis() {
 }
 
 
+void Gerenciador_colisoes::tratarAtaques() {
+
+    Jogador* jogadores[2] = {pJog1, pJog2};
+
+    for (int j = 0; j < 2; j++) {
+
+        Jogador* pJog = jogadores[j];
+
+        if (pJog != nullptr && !pJog->morto() && pJog->estaAtacando()) {
+
+            sf::FloatRect areaJog = getLimites(pJog);
+
+            float xJog = areaJog.left + areaJog.width / 2;
+            float yJog = areaJog.top + areaJog.height / 2;
+
+            for (size_t i = 0; i < LIs.size(); i++) {
+
+                Inimigo* pI = LIs[i];
+
+                if (pI != nullptr && !pI->morto()) {
+
+                    sf::FloatRect areaInim = getLimites(pI);
+
+                    float distanciaX = areaInim.left + areaInim.width / 2 - xJog;
+                    float distanciaY = areaInim.top + areaInim.height / 2 - yJog;
+
+                    if (distanciaY > -100.0 && distanciaY < 100.0) {
+
+                        if (pJog->getLadoAtaque() == 1 && distanciaX >= 0.0 && distanciaX < 120.0) {
+                            pI->Dano();
+
+                        }
+
+                        if (pJog->getLadoAtaque() == -1 && distanciaX <= 0.0 && distanciaX > -120.0) {
+                            pI->Dano();
+
+                        }
+                    }
+                }
+            }
+
+            pJog->setAtacando(false);
+        }
+    }
+}
+
+
 // Codigo do Peteco
 void Gerenciadores::Gerenciador_colisoes::executar() {
     
-    if (tempoDano1 > 0.f) {
+    if (tempoDano1 > 0.0) {
         tempoDano1 -= tempo;
     }
     
-    if (tempoDano2 > 0.f) {
+    if (tempoDano2 > 0.0) {
         tempoDano2 -= tempo;
     }
     
@@ -323,6 +365,7 @@ void Gerenciadores::Gerenciador_colisoes::executar() {
     tratarColisoesChaoInimigos();
     tratarColisoesJogsInimgs();
     tratarColisoesJogsProjeteis();
+    tratarAtaques();
 }
 
 }

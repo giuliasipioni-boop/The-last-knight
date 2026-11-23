@@ -5,7 +5,7 @@ namespace TrabalhoJogo {
 namespace Entidades {
 namespace Personagens {
 
-Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pontosJog(0),direcao(1) {
+Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),direcao(1),atacando(false), ladoAtaque(direcao){
     
     if (pGG != 0) {
         if (nJog == 1) {
@@ -20,29 +20,37 @@ Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),pon
 Jogador::~Jogador(){
 }
 
-void Jogador::setDirecao(int direcao) {
+void Jogador::setDirecao(int direcao){
+
     this->direcao = direcao;
-    velX = 250.0 * direcao;
-    
-    
-    if (velX < 0.0) {
+    velX = 250.0f * direcao;
+
+    if (direcao < 0) {
+        ladoAtaque = -1;
         virar(false);
     }
-    else if (velX > 0.0) {
+    else if (direcao > 0) {
+        ladoAtaque = 1;
         virar(true);
     }
-    
-    
 }
 
-void Jogador::atacar() {
-    // ataque com espada
-    
+void Jogador::setAtacando(bool atacando) {
+    this->atacando = atacando;
+}
+
+bool Jogador::estaAtacando() const {
+    return atacando;
+}
+
+int Jogador::getLadoAtaque() const {
+    return ladoAtaque;
 }
 
 void Jogador::mover() {
     aplicarFisica();
 }
+
 
 void Jogador::executar() {
     if (!morto()) {
@@ -58,3 +66,4 @@ void Jogador::salvar() {
 }
 }
 }
+

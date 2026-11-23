@@ -56,7 +56,7 @@ void Gerenciador_eventos::verificarTeclasPressionada(sf::Keyboard::Key tecla) {
         }
 
         if (tecla == sf::Keyboard::F) {
-            pJogador1->atacar();
+            pJogador1->setAtacando(true);
         }
     }
 
@@ -77,7 +77,7 @@ void Gerenciador_eventos::verificarTeclasPressionada(sf::Keyboard::Key tecla) {
         }
 
         if (tecla == sf::Keyboard::Space) {
-            pJogador2->atacar();
+            pJogador2->setAtacando(true);
         }
     }
     

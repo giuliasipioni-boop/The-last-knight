@@ -64,7 +64,7 @@ void Jogo::executar() {
         pMasmorra->executar();
         
         
-        // GAME OVERd
+        // GAME OVER
         // Quando os dois jogadores morrerem
         if (pJog1->morto() &&(pJog2 == nullptr || pJog2->morto())) {
 
@@ -76,10 +76,15 @@ void Jogo::executar() {
         GG.iniciarImagJogo();
 
         pMasmorra->desenharEntidades();
+        
+        
+        if (pJog1 != nullptr && !pJog1->morto()){
+            pJog1->desenhar();
+        }
 
-        pJog1->desenhar();
-        pJog2->desenhar();
-
+        if (pJog2 != nullptr && !pJog2->morto()) {
+            pJog2->desenhar();
+        }
         GG.mostrarJogo();
     }
 }
