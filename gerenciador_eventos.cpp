@@ -76,7 +76,7 @@ void Gerenciador_eventos::verificarTeclasPressionada(sf::Keyboard::Key tecla) {
             pJogador2->pular();
         }
 
-        if (tecla == sf::Keyboard::Space) {
+        if (tecla == sf::Keyboard::Enter) {
             pJogador2->setAtacando(true);
         }
     }
