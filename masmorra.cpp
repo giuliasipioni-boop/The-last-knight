@@ -25,19 +25,19 @@ void Masmorra::criarMagos() {
     int quantidade = 3 + rand() % (MaxMagos - 2);
 
     const float posicoes[6][2] = {
-        {200.f, 400.f},
-        {400.f, 400.f},
-        {600.f, 400.f},
-        {800.f, 400.f},
-        {1000.f, 400.f},
-        {1100.f, 300.f}
+        {850.f, 400.f},
+        {900.f, 400.f},
+        {950.f, 400.f},
+        {990.f, 400.f},
+        {1080.f, 400.f},
+        {1110.f, 300.f}
     };
 
     for (int i = 0; i < quantidade; i++) {
 
         Entidades::Personagens::Mago* pM = new Entidades::Personagens::Mago(posicoes[i][0],posicoes[i][1]);
         
-        pM->setEscala(0.65f);
+        pM->setEscala(0.65);
         pM->virar(false);
         pM->setJogadores(pJog1, pJog2);
 
