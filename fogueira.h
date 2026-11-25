@@ -1,8 +1,25 @@
-//
-//  fogueira.h
-//  the last knight
-//
-//  Created by Giulia Pizato Sipioni on 25/11/26.
-//  Copyright © 2026 Giulia Pizato Sipioni. All rights reserved.
-//
+#ifndef _FOGUEIRA_H_
+#define _FOGUEIRA_H_
 
+#include "obstaculo.h"
+
+namespace TrabalhoJogo {
+namespace Entidades {
+namespace Obstaculos {
+
+class Fogueira : public Obstaculo {
+public:
+    Fogueira(float x, float y);
+    virtual ~Fogueira();
+
+    void executar();
+    void salvar();
+
+    void obstaculizar(Personagens::Jogador* pJ);
+};
+
+}
+}
+}
+
+#endif

@@ -18,8 +18,8 @@ public:
 
     void executar();
     void salvar();
-    void aplicarFisica();
-    
+
+    void obstaculizar(Personagens::Jogador* pJ);
 };
 
 }
