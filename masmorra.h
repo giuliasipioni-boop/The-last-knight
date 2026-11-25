@@ -15,7 +15,7 @@ protected:
     void criarObstaculos();
     
     void criarMagos();
-    void criarBaril();
+    void criarBarril();
     
 public:
     //construtora e destrutora

@@ -10,9 +10,6 @@ namespace Personagens {
 class Personagem : public Entidade {
 protected:
     int vida;
-    float tempo;
-    float gravidade;
-    bool noAr;
     
     public :
     //construtora e destrutora
@@ -26,10 +23,7 @@ protected:
     void Dano();
     bool morto();
     
-    void aplicarFisica();
-    void setTempo(float tempo);
     void pular();
-    void pousar(float posY);
     
     virtual void executar()=0;
     virtual void salvar()=0;

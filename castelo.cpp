@@ -82,7 +82,6 @@ void Castelo::criarFogueiras() {
 void Castelo::executar() {
     
     lista_ents.executar();
-    
     GC.executar();
 }
 

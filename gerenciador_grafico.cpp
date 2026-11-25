@@ -56,7 +56,7 @@ void Gerenciador_grafico::carregarImagens(){
     carregarTextura("plataforma", "imagens/plataforma.png");
     carregarTextura("garras", "imagens/garras.png");
     carregarTextura("fogueira", "imagens/fogueira.png");
-    carregarTextura("baril", "imagens/baril.png");
+    carregarTextura("barril", "imagens/barril.png");
     carregarTextura("projetil", "imagens/projetil.png");
     
 }
