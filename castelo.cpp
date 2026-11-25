@@ -5,7 +5,7 @@
 namespace TrabalhoJogo {
 namespace Fases {
 
-Castelo::Castelo(): Fase(),MaxReis(4){
+Castelo::Castelo(): Fase(),MaxReis(5){
     criarCenario();
     criarInimigos();
     criarObstaculos();

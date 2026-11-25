@@ -10,16 +10,18 @@ class Castelo : public Fase {
 private:
     const int MaxReis;
     
-public:
-    //construtora e destrutora
-    Castelo();
-    ~Castelo();
-    
+protected:
     void criarInimigos();
     void criarObstaculos();
     
     void criarReis();
     void criarFogueiras();
+    
+    
+public:
+    //construtora e destrutora
+    Castelo();
+    ~Castelo();
     
     void executar();
 };

@@ -7,25 +7,22 @@
 namespace TrabalhoJogo {
 namespace Fases {
 
-Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(6),pJog1(nullptr),pJog2(nullptr),pontos(-1), totalInimigos(-1), pontuacao(-1.0){
+Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(7),pJog1(nullptr),pJog2(nullptr),pontos(-1), totalInimigos(-1), pontuacao(-1.0){
     GC.setLimites(1280.0, 620.0);
 }
 
 Fase::~Fase() {
-    lista_ents.limpar();
-
-    for (size_t i = 0; i < entidades.size(); i++) {
-        delete entidades[i];
+    for (size_t i = 0; i < lista_ents.getTamanho(); i++) {
+        delete lista_ents[i];
     }
 
-    entidades.clear();
+    lista_ents.limpar();
 }
+
 
 void Fase::adicionarEntidade(Entidades::Entidade* pE) {
     if (pE != nullptr) {
-        entidades.push_back(pE);
         lista_ents.incluir(pE);
-        
     }
 }
 
@@ -36,9 +33,9 @@ void Fase::setJogadores(Entidades::Personagens::Jogador* jog1,Entidades::Persona
     GC.setJog1(jog1);
     GC.setJog2(jog2);
 
-    for (size_t i = 0; i < entidades.size(); i++) {
+    for (size_t i = 0; i < lista_ents.getTamanho(); i++) {
 
-        Entidades::Personagens::Inimigo* pI =dynamic_cast<Entidades::Personagens::Inimigo*>(entidades[i]);
+        Entidades::Personagens::Inimigo* pI = dynamic_cast<Entidades::Personagens::Inimigo*>(lista_ents[i]);
 
         if (pI != nullptr) {
             pI->setJogadores(jog1, jog2);
@@ -46,21 +43,22 @@ void Fase::setJogadores(Entidades::Personagens::Jogador* jog1,Entidades::Persona
     }
 }
 
+
 void Fase::setTempo(float dt) {
-    
-    tempoTotal +=dt;
 
     GC.setTempo(dt);
 
-    for (size_t i = 0; i < entidades.size(); i++) {
+    for (size_t i = 0; i < lista_ents.getTamanho(); i++) {
 
-        Entidades::Personagens::Personagem* pP =dynamic_cast<Entidades::Personagens::Personagem*>(entidades[i]);
+        Entidades::Personagens::Personagem* pP= dynamic_cast<Entidades::Personagens::Personagem*>(lista_ents[i]);
 
         if (pP != nullptr) {
             pP->setTempo(dt);
         }
     }
 }
+
+
 
 void Fase::desenharEntidades() {
 
@@ -148,9 +146,9 @@ void Fase::calcularPontos(float tempoTotal){
     pontuacao = 0;
     
     
-    for (size_t i = 0; i < entidades.size(); i++) {
+    for (size_t i = 0; i < lista_ents.getTamanho(); i++) {
 
-            Entidades::Personagens::Inimigo* pI = dynamic_cast<Entidades::Personagens::Inimigo*>(entidades[i]);
+            Entidades::Personagens::Inimigo* pI = dynamic_cast<Entidades::Personagens::Inimigo*>(lista_ents[i]);
 
             if (pI != nullptr) {
                 totalInimigos++;

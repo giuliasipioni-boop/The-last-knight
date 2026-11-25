@@ -7,6 +7,7 @@
 #include "gerenciador_eventos.h"
 #include "jogador.h"
 #include "masmorra.h"
+#include "castelo.h"
 
 namespace TrabalhoJogo {
 
@@ -19,6 +20,7 @@ private:
     Entidades::Personagens::Jogador* pJog2;
 
     Fases::Masmorra* pMasmorra;
+    Fases::Castelo* pCastelo;
 
     sf::Clock relogio;
 

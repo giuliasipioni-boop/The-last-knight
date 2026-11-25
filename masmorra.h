@@ -10,16 +10,17 @@ class Masmorra : public Fase {
 private:
     const int MaxMagos;
     
-public:
-    //construtora e destrutora
-    Masmorra();
-    ~Masmorra();
-    
+protected:
     void criarInimigos();
     void criarObstaculos();
     
     void criarMagos();
     void criarBaril();
+    
+public:
+    //construtora e destrutora
+    Masmorra();
+    ~Masmorra();
     
     void executar();
 };
