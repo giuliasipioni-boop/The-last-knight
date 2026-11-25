@@ -19,7 +19,6 @@ protected:
     float pontuacao;
     float tempoTotal;
     
-    std::vector<Entidades::Entidade*> entidades;
 
     Entidades::Personagens::Jogador* pJog1;
     Entidades::Personagens::Jogador* pJog2;
