@@ -43,6 +43,7 @@ public:
     void operator++();
     void calcularPontos(float tempoTotal);
     float getPontos();
+    bool vitoria();
 
     
     virtual void executar() = 0;

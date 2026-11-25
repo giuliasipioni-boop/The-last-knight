@@ -170,6 +170,19 @@ void Fase::calcularPontos(float tempoTotal){
 float Fase::getPontos(){
     return pontuacao;
 }
+
+bool Fase::vitoria(){
+    for (size_t i = 0; i < lista_ents.getTamanho(); i++) {
+
+        Entidades::Personagens::Inimigo* pI = dynamic_cast<Entidades::Personagens::Inimigo*>(lista_ents[i]);
+
+        if (pI != nullptr && !pI->morto()) {
+            return false;
+        }
+    }
+
+    return true;
+}
     
     
 }

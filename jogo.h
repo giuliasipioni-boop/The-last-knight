@@ -19,8 +19,8 @@ private:
     Entidades::Personagens::Jogador* pJog1;
     Entidades::Personagens::Jogador* pJog2;
 
-    Fases::Masmorra* pMasmorra;
-    Fases::Castelo* pCastelo;
+    Fases::Fase* pFaseAtual;
+    int faseAtual;
 
     sf::Clock relogio;
 
