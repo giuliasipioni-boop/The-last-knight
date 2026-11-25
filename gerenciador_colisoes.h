@@ -18,6 +18,9 @@ class Inimigo;
 
 namespace Obstaculos {
 class Obstaculo;
+class Barril;
+class Plataforma;
+class Fogueira;
 }
 
 }

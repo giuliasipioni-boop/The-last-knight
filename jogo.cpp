@@ -8,8 +8,8 @@ Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pFaseAtual(nullptr)
     Ente::setGG(&GG);
 
     // Criacao dos jogadores
-    pJog1 = new Entidades::Personagens::Jogador(100.0, 300.0, 1);
-    pJog2 = new Entidades::Personagens::Jogador(200.0, 350.0, 2);
+    pJog1 = new Entidades::Personagens::Jogador(50.0, 300.0, 1);
+    pJog2 = new Entidades::Personagens::Jogador(150.0, 300.0, 2);
     /*if (quantidadeJogadores == 2) {
         pJog2 = new Entidades::Personagens::Jogador(200.0, 450.0, 2);
     }*/

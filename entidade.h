@@ -12,6 +12,9 @@ protected:
     float y;
     float velX;
     float velY;
+    float tempo;
+    float gravidade;
+    bool noAr;
     
 public:
     Entidade(float x, float y);
@@ -23,6 +26,9 @@ public:
     int getPosicaoY();
     int getVelocidadeX();
     int getVelocidadeY();
+    void setTempo(float tempo);
+    void pousar(float posY);
+    virtual void aplicarFisica();
     
     virtual void executar()=0;
     virtual void salvar()=0;

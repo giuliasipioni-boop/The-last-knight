@@ -14,6 +14,9 @@ class Jogador;
 namespace Obstaculos {
 
 class Barril : public Obstaculo {
+private:
+    int tamanho;
+    
 public:
     Barril(float x, float y);
     virtual ~Barril();

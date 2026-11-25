@@ -60,6 +60,7 @@ void Mago::inverterDirecao() {
 void Mago::executar() {
     if (!morto()) {
         mover();
+
     }
 }
 

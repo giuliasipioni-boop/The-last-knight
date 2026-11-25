@@ -27,7 +27,7 @@ bool Menu::mostrar() {
         return false;
     }
 
-    sf::Text titulo("THE LAST KNIGHT", fonte, 56);
+    /*sf::Text titulo("THE LAST KNIGHT", fonte, 56);
     titulo.setStyle(sf::Text::Bold);
     titulo.setFillColor(sf::Color(235, 220, 185));
     titulo.setPosition(640.f - titulo.getLocalBounds().width / 2.f, 190.f);
@@ -35,6 +35,7 @@ bool Menu::mostrar() {
     sf::Text subtitulo("Uma aventura medieval", fonte, 22);
     subtitulo.setFillColor(sf::Color(210, 210, 210));
     subtitulo.setPosition(640.f - subtitulo.getLocalBounds().width / 2.f, 270.f);
+     */
 
     sf::Text iniciar("INICIAR JOGO", fonte, 30);
     sf::Text sair("SAIR", fonte, 30);
