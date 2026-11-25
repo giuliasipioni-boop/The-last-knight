@@ -19,6 +19,7 @@
 		BE59792E30ACAA0E00AD4633 /* gerenciador_eventos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4030A6462500F7B08E /* gerenciador_eventos.cpp */; };
 		BE59792F30ACAAC700AD4633 /* projetil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8F30978773003D4604 /* projetil.cpp */; };
 		BE59793030ACDA5900AD4633 /* chao.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE1F082B30AB8C2D00682346 /* chao.cpp */; };
+		BE7A2FC830B71B3C00E2A2D9 /* castelo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE9130978773003D4604 /* castelo.cpp */; };
 		BE816D70308D633100918761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D6F308D633100918761 /* main.cpp */; };
 		BEC2CE9B30978912003D4604 /* gerenciador_grafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */; };
 		BEC2CEA03097EF6B003D4604 /* ente.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D9F308D662400918761 /* ente.cpp */; };
@@ -473,6 +474,7 @@
 		BE816D62308D633100918761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				BE7A2FC830B71B3C00E2A2D9 /* castelo.cpp in Sources */,
 				BEC8921230B36C2C00D20AA9 /* obstaculo.cpp in Sources */,
 				BEC8921130B36C2200D20AA9 /* fase.cpp in Sources */,
 				BEC8921030B36C1E00D20AA9 /* masmorra.cpp in Sources */,

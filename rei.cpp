@@ -39,6 +39,14 @@ void Rei::mover() {
     else {
         direcao = 0;
     }
+    
+    if (velX < 0.0) {
+        virar(false);
+    }
+    else if (velX > 0.0) {
+        virar(true);
+    }
+
 
     velX = 60.0 * direcao;
 

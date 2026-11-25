@@ -3,7 +3,7 @@
 
 namespace TrabalhoJogo {
 
-Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pMasmorra(nullptr) {
+Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pFaseAtual(nullptr), faseAtual(1) {
     
     Ente::setGG(&GG);
 
@@ -18,15 +18,15 @@ Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pMasmorra(nullptr) 
     GE = new Gerenciadores::Gerenciador_eventos(&GG.getJanela(),pJog1,pJog2);
 
     // Primeira fase
-    pMasmorra = new Fases::Masmorra();
+    pFaseAtual = new Fases::Masmorra();
 
-    pMasmorra->setJogadores(pJog1, pJog2);
+    pFaseAtual->setJogadores(pJog1, pJog2);
 }
 
 Jogo::~Jogo() {
 
     delete GE;
-    delete pMasmorra;
+    delete pFaseAtual;
 
     delete pJog1;
     delete pJog2;
@@ -51,41 +51,69 @@ void Jogo::executar() {
         }
 
         pJog1->setTempo(dt);
-        pJog2->setTempo(dt);
+        if (pJog2 != nullptr){
+            pJog2->setTempo(dt);
+        }
 
-        pMasmorra->setTempo(dt);
+        pFaseAtual->setTempo(dt);
 
         pJog1->executar();
-
         if (pJog2 != nullptr) {
             pJog2->executar();
         }
 
-        pMasmorra->executar();
-        
-        
+        pFaseAtual->executar();
+
         // GAME OVER
         // Quando os dois jogadores morrerem
-        if (pJog1->morto() &&(pJog2 == nullptr || pJog2->morto())) {
+        if (pJog1->morto() && (pJog2 == nullptr || pJog2->morto())) {
 
-            //voltar ao menu quando tiver o menu pronto
-            
+        // Voltar ao menu quando tiver o menu pronto
+
+        break;
+        }
+
+        // VITORIA
+        // Quando todos os inimigos morrerem
+        if (pFaseAtual->vitoria()) {
+
+        // Venceu a Masmorra
+            if (faseAtual == 1) {
+
+            delete pFaseAtual;
+
+            pFaseAtual = new Fases::Castelo();
+
+            pFaseAtual->setJogadores(pJog1, pJog2);
+
+            faseAtual = 2;
+
+            continue;
+            }
+
+        // Venceu o Castelo
+            else if (faseAtual == 2) {
+
+            // Venceu o jogo
+            // Voltar ao menu quando estiver pronto
+
             break;
+            }
         }
 
         GG.iniciarImagJogo();
 
-        pMasmorra->desenharEntidades();
-        
-        
-        if (pJog1 != nullptr && !pJog1->morto()){
+        pFaseAtual->desenharEntidades();
+
+        if (pJog1 != nullptr && !pJog1->morto()) {
             pJog1->desenhar();
         }
 
         if (pJog2 != nullptr && !pJog2->morto()) {
             pJog2->desenhar();
         }
+
         GG.mostrarJogo();
-    }
+        }
 }
 }

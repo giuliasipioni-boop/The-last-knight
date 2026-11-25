@@ -25,12 +25,12 @@ void Masmorra::criarMagos() {
     int quantidade = 3 + rand() % (MaxMagos - 2);
 
     const float posicoes[6][2] = {
-        {850.f, 400.f},
-        {900.f, 400.f},
-        {950.f, 400.f},
-        {990.f, 400.f},
-        {1080.f, 400.f},
-        {1110.f, 300.f}
+        {850.0, 400.0},
+        {900.0, 400.0},
+        {950.0, 400.0},
+        {990.0, 400.0},
+        {1080.0, 400.0},
+        {1110.0, 300.0}
     };
 
     for (int i = 0; i < quantidade; i++) {
