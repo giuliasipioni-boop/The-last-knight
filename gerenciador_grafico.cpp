@@ -1,7 +1,7 @@
 #include "gerenciador_grafico.h"
 #include "ente.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Gerenciadores {
 
 Gerenciador_grafico::Gerenciador_grafico():janelaJogo(sf::VideoMode(1280, 720), "The Last Knight") {
@@ -58,6 +58,8 @@ void Gerenciador_grafico::carregarImagens(){
     carregarTextura("fogueira", "imagens/fogueira.png");
     carregarTextura("barril", "imagens/barril.png");
     carregarTextura("projetil", "imagens/projetil.png");
+    carregarTextura("menu", "imagens/menu.jpg");
+    carregarTextura("barrilDanoso", "imagens/barrilDanoso.png");
     
 }
 

@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "entidade.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 

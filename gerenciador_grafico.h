@@ -3,11 +3,11 @@
 #include "stdafx.h"
 #include "ente.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 class Ente;
 }
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Gerenciadores{
 
 class Gerenciador_grafico {
@@ -25,13 +25,13 @@ public:
     
     //outras funcoes
     void desenharFigura(const sf::Drawable& figura);
-    void desenharEnte(TrabalhoJogo::Ente *pE);
+    void desenharEnte(TheLastKnights::Ente *pE);
     void limparTela();
     void mostrarJogo();
     bool jogoAberto() const;
     void carregarImagens();
     bool carregarTextura(const std::string& nome, const std::string& caminho);
-    bool aplicarTextura(TrabalhoJogo::Ente* pE, const std::string& nome);
+    bool aplicarTextura(TheLastKnights::Ente* pE, const std::string& nome);
     void configurarFundo();
     void desenharFundo();
     void iniciarImagJogo();

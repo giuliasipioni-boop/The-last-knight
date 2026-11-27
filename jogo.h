@@ -8,8 +8,9 @@
 #include "jogador.h"
 #include "masmorra.h"
 #include "castelo.h"
+#include "menu.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 
 class Jogo {
 private:
@@ -21,6 +22,9 @@ private:
 
     Fases::Fase* pFaseAtual;
     int faseAtual;
+    
+    Menu menu;
+    int nJog;
 
     sf::Clock relogio;
 

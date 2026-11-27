@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "fase.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases{
 
 class Castelo : public Fase {
@@ -15,6 +15,7 @@ protected:
     void criarObstaculos();
     
     void criarReis();
+    void criarProjeteis();
     void criarFogueiras();
     
     

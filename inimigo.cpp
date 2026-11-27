@@ -1,7 +1,7 @@
 #include "inimigo.h"
 #include "jogador.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
@@ -51,6 +51,8 @@ void Inimigo::setJogadores(Jogador* jog1, Jogador* jog2) {
     pJogador1 = jog1;
     pJogador2 = jog2;
 }
+
+
 
 
 }

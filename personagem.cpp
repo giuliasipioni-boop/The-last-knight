@@ -1,7 +1,7 @@
 #include "personagem.h"
 #include "stdafx.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades{
 namespace Personagens{
 
@@ -38,7 +38,7 @@ bool Personagem::morto(){
     return vida <=0;
 }
 
-//revisar
+
 void Personagem::pular() {
     if (!noAr) {
         velY = -550.0;

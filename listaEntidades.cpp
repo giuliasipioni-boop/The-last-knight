@@ -2,7 +2,7 @@
 #include "personagem.h"
 #include "projetil.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Listas {
 
 ListaEntidades::ListaEntidades(){

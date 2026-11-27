@@ -3,7 +3,7 @@
 
 #include "personagem.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
@@ -23,6 +23,7 @@ public:
     virtual ~Inimigo();
     
     void setJogadores(Jogador* jog1, Jogador* jog2);
+    //void salvarDataBuffer(std::ofstream& arquivo);
 
     virtual void mover() = 0;
     virtual void executar() = 0;

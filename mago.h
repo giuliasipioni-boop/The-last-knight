@@ -5,7 +5,7 @@
 #include "inimigo.h"
 #include "jogador.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 

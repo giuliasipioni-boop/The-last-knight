@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE3F7D5130AA54B900F7B08E /* fogueira.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3F7D4F30AA54B900F7B08E /* fogueira.png */; };
 		BE3F7D5230AA54B900F7B08E /* projetil.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3F7D5030AA54B900F7B08E /* projetil.png */; };
 		BE59792530ABD13F00AD4633 /* inimigo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4330AA482300F7B08E /* inimigo.cpp */; };
 		BE59792630ABD14400AD4633 /* esqueleto.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE3F7D4530AA492100F7B08E /* esqueleto.cpp */; };
@@ -23,6 +22,13 @@
 		BE7A2FCB30B7531300E2A2D9 /* plataforma.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE7A2FCA30B7531000E2A2D9 /* plataforma.cpp */; };
 		BE7A2FCE30B7532F00E2A2D9 /* barril.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE7A2FCD30B7532C00E2A2D9 /* barril.cpp */; };
 		BE7A2FD130B7535100E2A2D9 /* fogueira.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE7A2FD030B7534F00E2A2D9 /* fogueira.cpp */; };
+		BE7A2FD830B9C0D300E2A2D9 /* menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEC2CE8730978773003D4604 /* menu.cpp */; };
+		BE7A2FE230B9CA0900E2A2D9 /* barril.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FE130B9CA0900E2A2D9 /* barril.png */; };
+		BE7A2FE430B9CA1500E2A2D9 /* menu.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FE330B9CA1500E2A2D9 /* menu.jpg */; };
+		BE7A2FE630B9CA2600E2A2D9 /* fogueira.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FE530B9CA2600E2A2D9 /* fogueira.png */; };
+		BE7A2FE830B9CA3D00E2A2D9 /* jogador2.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FE730B9CA3D00E2A2D9 /* jogador2.png */; };
+		BE7A2FEA30B9CA4C00E2A2D9 /* fonte.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FE930B9CA4C00E2A2D9 /* fonte.ttf */; };
+		BE7A2FEC30BA389400E2A2D9 /* barrilDanoso.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7A2FEB30BA389400E2A2D9 /* barrilDanoso.png */; };
 		BE816D70308D633100918761 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D6F308D633100918761 /* main.cpp */; };
 		BEC2CE9B30978912003D4604 /* gerenciador_grafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BEF727C830912BBE002ACA7D /* gerenciador_grafico.cpp */; };
 		BEC2CEA03097EF6B003D4604 /* ente.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BE816D9F308D662400918761 /* ente.cpp */; };
@@ -54,7 +60,6 @@
 		BE3F7D4730AA4B2F00F7B08E /* mago.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mago.cpp; sourceTree = "<group>"; };
 		BE3F7D4A30AA4E4D00F7B08E /* rei.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rei.h; sourceTree = "<group>"; };
 		BE3F7D4B30AA4E5200F7B08E /* rei.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rei.cpp; sourceTree = "<group>"; };
-		BE3F7D4F30AA54B900F7B08E /* fogueira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fogueira.png; sourceTree = "<group>"; };
 		BE3F7D5030AA54B900F7B08E /* projetil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = projetil.png; sourceTree = "<group>"; };
 		BE3F7D5330AA557A00F7B08E /* lista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
 		BE3F7D5530AA55DA00F7B08E /* listaEntidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = listaEntidades.cpp; sourceTree = "<group>"; };
@@ -67,6 +72,12 @@
 		BE7A2FCD30B7532C00E2A2D9 /* barril.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = barril.cpp; sourceTree = "<group>"; };
 		BE7A2FCF30B7533100E2A2D9 /* fogueira.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fogueira.h; sourceTree = "<group>"; };
 		BE7A2FD030B7534F00E2A2D9 /* fogueira.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fogueira.cpp; sourceTree = "<group>"; };
+		BE7A2FE130B9CA0900E2A2D9 /* barril.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barril.png; sourceTree = "<group>"; };
+		BE7A2FE330B9CA1500E2A2D9 /* menu.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = menu.jpg; sourceTree = "<group>"; };
+		BE7A2FE530B9CA2600E2A2D9 /* fogueira.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fogueira.png; sourceTree = "<group>"; };
+		BE7A2FE730B9CA3D00E2A2D9 /* jogador2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jogador2.png; sourceTree = "<group>"; };
+		BE7A2FE930B9CA4C00E2A2D9 /* fonte.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fonte.ttf; sourceTree = "<group>"; };
+		BE7A2FEB30BA389400E2A2D9 /* barrilDanoso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barrilDanoso.png; sourceTree = "<group>"; };
 		BE816D67308D633100918761 /* the last knight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "the last knight.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE816D6F308D633100918761 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		BE816D80308D649100918761 /* FLAC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FLAC.framework; sourceTree = "<group>"; };
@@ -262,15 +273,20 @@
 		BEF2D5F2309BE6E700DCD2A3 /* imagens */ = {
 			isa = PBXGroup;
 			children = (
-				BEF2D5EA309BE6E700DCD2A3 /* esqueleto.png */,
 				BEF2D5ED309BE6E700DCD2A3 /* garras.png */,
-				BEF2D5EE309BE6E700DCD2A3 /* jogador1.png */,
+				BE7A2FE330B9CA1500E2A2D9 /* menu.jpg */,
 				BEF2D5EC309BE6E700DCD2A3 /* fundo.png */,
-				BE3F7D4F30AA54B900F7B08E /* fogueira.png */,
-				BE3F7D5030AA54B900F7B08E /* projetil.png */,
-				BEF2D5EF309BE6E700DCD2A3 /* mago.png */,
+				BEF2D5EE309BE6E700DCD2A3 /* jogador1.png */,
+				BE7A2FE730B9CA3D00E2A2D9 /* jogador2.png */,
 				BEF2D5F0309BE6E700DCD2A3 /* plataforma.png */,
+				BE7A2FE130B9CA0900E2A2D9 /* barril.png */,
+				BE7A2FE530B9CA2600E2A2D9 /* fogueira.png */,
+				BEF2D5EA309BE6E700DCD2A3 /* esqueleto.png */,
+				BEF2D5EF309BE6E700DCD2A3 /* mago.png */,
 				BEF2D5F1309BE6E700DCD2A3 /* rei.png */,
+				BE7A2FEB30BA389400E2A2D9 /* barrilDanoso.png */,
+				BE3F7D5030AA54B900F7B08E /* projetil.png */,
+				BE7A2FE930B9CA4C00E2A2D9 /* fonte.ttf */,
 			);
 			path = imagens;
 			sourceTree = "<group>";
@@ -332,12 +348,17 @@
 		BE816D64308D633100918761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				BE7A2FE630B9CA2600E2A2D9 /* fogueira.png in Resources */,
+				BE7A2FEC30BA389400E2A2D9 /* barrilDanoso.png in Resources */,
 				BEF2D5F3309BE6E700DCD2A3 /* garras.png in Resources */,
 				BEF2D5F4309BE6E700DCD2A3 /* fundo.png in Resources */,
-				BE3F7D5130AA54B900F7B08E /* fogueira.png in Resources */,
+				BE7A2FE830B9CA3D00E2A2D9 /* jogador2.png in Resources */,
 				BE3F7D5230AA54B900F7B08E /* projetil.png in Resources */,
+				BE7A2FE230B9CA0900E2A2D9 /* barril.png in Resources */,
+				BE7A2FEA30B9CA4C00E2A2D9 /* fonte.ttf in Resources */,
 				BEF2D5F6309BE6E700DCD2A3 /* mago.png in Resources */,
 				BEF2D5F8309BE6E700DCD2A3 /* plataforma.png in Resources */,
+				BE7A2FE430B9CA1500E2A2D9 /* menu.jpg in Resources */,
 				BEF2D5F9309BE6E700DCD2A3 /* jogador1.png in Resources */,
 				BEF2D5FA309BE6E700DCD2A3 /* rei.png in Resources */,
 				BEF2D5FB309BE6E700DCD2A3 /* esqueleto.png in Resources */,
@@ -485,6 +506,7 @@
 		BE816D62308D633100918761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				BE7A2FD830B9C0D300E2A2D9 /* menu.cpp in Sources */,
 				BE7A2FC830B71B3C00E2A2D9 /* castelo.cpp in Sources */,
 				BEC8921230B36C2C00D20AA9 /* obstaculo.cpp in Sources */,
 				BEC8921130B36C2200D20AA9 /* fase.cpp in Sources */,

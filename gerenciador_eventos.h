@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
     class Jogador;
@@ -11,7 +11,7 @@ namespace Personagens {
 }
 }
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Gerenciadores {
 
 class Gerenciador_eventos {
@@ -20,6 +20,8 @@ private:
 
     Entidades::Personagens::Jogador* pJogador1;
     Entidades::Personagens::Jogador* pJogador2;
+    
+    bool pausado;
 
 public:
     //construtora e destrutora
@@ -29,6 +31,7 @@ public:
     void executar();
     void verificarTeclasPressionada(sf::Keyboard::Key tecla);
     void verificarTeclaSolta(sf::Keyboard::Key tecla);
+    bool estaPausado() const;
 };
 
 }

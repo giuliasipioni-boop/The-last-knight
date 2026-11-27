@@ -3,10 +3,10 @@
 #include "stdafx.h"
 #include "ente.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 
-class Entidade : public TrabalhoJogo::Ente {
+class Entidade : public Ente {
 protected:
     float x;
     float y;
@@ -22,10 +22,10 @@ public:
     
     void setPosicao(float x, float y);
     void setVelocidade(float velX, float velY);
-    int getPosicaoX();
-    int getPosicaoY();
-    int getVelocidadeX();
-    int getVelocidadeY();
+    float getPosicaoX();
+    float getPosicaoY();
+    float getVelocidadeX();
+    float getVelocidadeY();
     void setTempo(float tempo);
     void pousar(float posY);
     virtual void aplicarFisica();

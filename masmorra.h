@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "fase.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases{
 
 class Masmorra : public Fase {

@@ -1,14 +1,15 @@
 #include "fase.h"
+#include "chao.h"
 #include "esqueleto.h"
 #include "plataforma.h"
 #include "personagem.h"
 #include "inimigo.h"
 #include "stdafx.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases {
 
-Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(7),pJog1(nullptr),pJog2(nullptr),pontos(-1), totalInimigos(-1), pontuacao(-1.0){
+Fase::Fase(): lista_ents(),GC(),MaxEsqueletos(7),pJog1(nullptr),pJog2(nullptr),pontos(-1), totalInimigos(-1), pontuacao(-1.0),tempoTotal(0.0){
     GC.setLimites(1280.0, 620.0);
 }
 
@@ -82,15 +83,18 @@ void Fase::criarEsqueletos() {
     int quantidade = 3 + rand() % (MaxEsqueletos - 2);
 
     // Posicoes possiveis dos esqueletos
-    const float posicoes[6][2] = {
-        {500.0, 500.0},
-        {700.0, 500.0},
-        {1100.0, 500.0},
-        {500.0, 350.0},
-        {700.0, 350.0},
-        {1100.0, 350.0}
-    };
+    const float posicoes[7][2] = {
 
+        {350.0, 500.0},
+        {450.0, 180.0},  // Plataforma 2
+        {900.0, 500.0},
+        {650.0, 80.0},   // Plataforma 3
+        {1100.0, 500.0},
+        {550.0, 500.0},
+        {780.0, 500.0}
+
+    };
+    
     for (int i = 0; i < quantidade; i++) {
 
         Entidades::Personagens::Esqueleto* pE =new Entidades::Personagens::Esqueleto(posicoes[i][0],posicoes[i][1]);
@@ -110,13 +114,15 @@ void Fase::criarPlataformas() {
     int quantidade =3 + rand() % 5;
 
     const float posicoes[7][2] = {
-        {500.0, 370.0},  // Plataforma 1
-        {680.0, 430.0},  // Plataforma 2
-        {280.0, 430.0},  // Plataforma 3
-        {300.0, 300.0},  // Plataforma 4
-        {950.0, 410.0},  // Plataforma 5
-        {800.0, 360.0},  // Plataforma 6
-        {700.0, 250.0}   // Plataforma 7
+
+        {200.0, 465.0},  // Plataforma 1
+        {420.0, 335.0},  // Plataforma 2
+        {630.0, 205.0},  // Plataforma 3
+        {840.0, 320.0},  // Plataforma 4
+        {1050.0, 440.0}, // Plataforma 5
+        {950.0, 180.0},  // Plataforma 6
+        {330.0, 120.0}   // Plataforma 7
+
     };
 
     for (int i = 0; i < quantidade; i++) {
@@ -136,9 +142,13 @@ void Fase::criarPlataformas() {
 // Organiza a criacao do cenario
 void Fase::criarCenario() {
 
-    criarPlataformas();
-}
+    Entidades::Chao* pC =
+        new Entidades::Chao(0.0, 620.0, 1280.0, 100.0);
 
+    adicionarEntidade(pC);
+    GC.incluirChao(pC);
+    
+}
 
 void Fase::operator++(){
     pontos++;
@@ -165,7 +175,7 @@ void Fase::calcularPontos(float tempoTotal){
         }
 
 
-        float pontuacao = (pontos * 1000.0) /(totalInimigos * tempoTotal);
+        pontuacao = (pontos * 1000.0) /(totalInimigos * tempoTotal);
 
         if (pJog2 != nullptr) {
             pontuacao /= 2;

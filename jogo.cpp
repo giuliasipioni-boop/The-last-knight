@@ -1,30 +1,13 @@
 #include "jogo.h"
 #include "ente.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 
-Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pFaseAtual(nullptr), faseAtual(1) {
-    
+Jogo::Jogo(): GG(),GE(nullptr),pJog1(nullptr),pJog2(nullptr),pFaseAtual(nullptr),faseAtual(1),menu(),nJog(1) {
     Ente::setGG(&GG);
-
-    // Criacao dos jogadores
-    pJog1 = new Entidades::Personagens::Jogador(50.0, 300.0, 1);
-    pJog2 = new Entidades::Personagens::Jogador(150.0, 300.0, 2);
-    /*if (quantidadeJogadores == 2) {
-        pJog2 = new Entidades::Personagens::Jogador(200.0, 450.0, 2);
-    }*/
-    
-    // Gerenciador de eventos
-    GE = new Gerenciadores::Gerenciador_eventos(&GG.getJanela(),pJog1,pJog2);
-
-    // Primeira fase
-    pFaseAtual = new Fases::Masmorra();
-
-    pFaseAtual->setJogadores(pJog1, pJog2);
 }
 
 Jogo::~Jogo() {
-
     delete GE;
     delete pFaseAtual;
 
@@ -36,84 +19,117 @@ Jogo::~Jogo() {
 
 void Jogo::executar() {
 
+    // Loop principal
     while (GG.jogoAberto()) {
 
-        float dt = relogio.restart().asSeconds();
-
-        if (dt > 0.05f) {
-            dt = 0.05f;
-        }
-
-        GE->executar();
+        menu.setJogoPausado(false);
+        menu.executar();
 
         if (!GG.jogoAberto()) {
             break;
         }
+        
+        // Recebe as escolhas do menu
+        nJog = menu.getNJog();
+        faseAtual = menu.getFaseSelecionada();
 
-        pJog1->setTempo(dt);
-        if (pJog2 != nullptr){
-            pJog2->setTempo(dt);
+        // Cria os jogadores
+        pJog1 = new Entidades::Personagens::Jogador(50.0, 300.0, 1);
+        if (nJog == 2) {
+            pJog2 = new Entidades::Personagens::Jogador(150.0, 300.0, 2);
         }
+        // Cria o gerenciador de eventos
+        GE = new Gerenciadores::Gerenciador_eventos(&GG.getJanela(), pJog1, pJog2);
 
-        pFaseAtual->setTempo(dt);
-
-        pJog1->executar();
-        if (pJog2 != nullptr) {
-            pJog2->executar();
+        // Cria a fase escolhida
+        if (faseAtual == 1) {
+            pFaseAtual = new Fases::Masmorra();
         }
-
-        pFaseAtual->executar();
-
-        // GAME OVER
-        // Quando os dois jogadores morrerem
-        if (pJog1->morto() && (pJog2 == nullptr || pJog2->morto())) {
-
-        // Voltar ao menu quando tiver o menu pronto
-
-        break;
-        }
-
-        // VITORIA
-        // Quando todos os inimigos morrerem
-        if (pFaseAtual->vitoria()) {
-
-        // Venceu a Masmorra
-            if (faseAtual == 1) {
-
-            delete pFaseAtual;
-
+        else {
             pFaseAtual = new Fases::Castelo();
+        }
 
-            pFaseAtual->setJogadores(pJog1, pJog2);
+        pFaseAtual->setJogadores(pJog1, pJog2);
 
-            faseAtual = 2;
+        float tempoTotal = 0.0;
+        float pontosTotal = 0.0;
 
-            continue;
+        relogio.restart();
+
+        // Loop da partida
+        while (GG.jogoAberto()) {
+
+            float dt = relogio.restart().asSeconds();
+            GE->executar();
+            tempoTotal += dt;
+            
+            if (!GG.jogoAberto()) {
+                break;
             }
 
-        // Venceu o Castelo
-            else if (faseAtual == 2) {
-
-            // Venceu o jogo
-            // Voltar ao menu quando estiver pronto
-
-            break;
+            // Pausar partida
+            if (GE->estaPausado()) {
+                dt = 0.0;
+                continue;
             }
+
+            // Atualiza o tempo
+            pJog1->setTempo(dt);
+            if (pJog2 != nullptr) {
+                pJog2->setTempo(dt);
+            }
+            pFaseAtual->setTempo(dt);
+
+            // Executa os jogadores
+            pJog1->executar();
+
+            if (pJog2 != nullptr) {
+                pJog2->executar();
+            }
+
+            // Executa a fase
+            pFaseAtual->executar();
+
+            // DERROTA
+            if (pJog1->morto() && (pJog2 == nullptr || pJog2->morto())) {
+        
+                break;
+            }
+
+            // VITORIA
+            if (pFaseAtual->vitoria()) {
+                pFaseAtual->calcularPontos(tempoTotal);
+                pontosTotal += pFaseAtual->getPontos();
+                // Venceu a Masmorra
+                if (faseAtual == 1) {
+                    delete pFaseAtual;
+                    pFaseAtual = new Fases::Castelo();
+                    pFaseAtual->setJogadores(pJog1, pJog2);
+                    faseAtual = 2;
+                    tempoTotal = 0.0;
+                    relogio.restart();
+
+                    continue;
+                }
+                // Venceu o Castelo
+                else if (faseAtual == 2) {
+                    menu.mostrarPontuacao(pontosTotal);
+                    break;
+                }
+            }
+
+            // Desenha o jogo
+            GG.iniciarImagJogo();
+            pFaseAtual->desenharEntidades();
+            if (pJog1 != nullptr && !pJog1->morto()) {
+                pJog1->desenhar();
+            }
+            if (pJog2 != nullptr && !pJog2->morto()) {
+                pJog2->desenhar();
+            }
+            GG.mostrarJogo();
         }
-
-        GG.iniciarImagJogo();
-
-        pFaseAtual->desenharEntidades();
-
-        if (pJog1 != nullptr && !pJog1->morto()) {
-            pJog1->desenhar();
-        }
-
-        if (pJog2 != nullptr && !pJog2->morto()) {
-            pJog2->desenhar();
-        }
-
-        GG.mostrarJogo();
-        }
+    }
 }
+
 }
