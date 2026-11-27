@@ -5,7 +5,7 @@
 #include "lista.h"
 #include "entidade.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Listas {
 
 class ListaEntidades {

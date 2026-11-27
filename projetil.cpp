@@ -1,10 +1,10 @@
 #include "projetil.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 
-Projetil::Projetil(float x, float y, float velX, float velY): Entidade(x, y), ativo(true), tempo(0.f), gravidade(500.f) {
+Projetil::Projetil(float x, float y, float velX, float velY): Entidade(x, y), ativo(true), associado(false){
 
     setVelocidade(velX, velY);
 
@@ -16,10 +16,6 @@ Projetil::Projetil(float x, float y, float velX, float velY): Entidade(x, y), at
 Projetil::~Projetil() {
 }
 
-void Projetil::setTempo(float tempo) {
-    this->tempo = tempo;
-}
-
 bool Projetil::estaAtivo() const {
     return ativo;
 }
@@ -28,25 +24,33 @@ void Projetil::desativar() {
     ativo = false;
 }
 
-void Projetil::executar() {
-
-    if (!ativo) {
-        return;
-    }
-
-    x += velX * tempo;
-
-    velY += gravidade * tempo;
-    y += velY * tempo;
-
-    figura.setPosition(x, y);
-
-    //figura.rotate(300.f * tempo);
+bool Projetil::estaAssociado() const{
+    return associado;
 }
+
+void Projetil::setAsssociado(bool associado){
+    this->associado = associado;
+}
+
+void Projetil::executar() {
+    if (ativo)
+        aplicarFisica();
+}
+
 
 void Projetil::salvar() {
     // Implementar quando fizermos o salvamento.
 }
+
+void Projetil::danificar(Personagens::Jogador* pJ) {
+
+    if (ativo && pJ != nullptr && !pJ->morto()) {
+        
+        pJ->Dano();
+        desativar();
+    }
+}
+
 
 }
 }

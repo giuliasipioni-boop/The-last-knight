@@ -5,7 +5,7 @@ int main() {
 
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    TrabalhoJogo::Jogo jogo;
+    TheLastKnights::Jogo jogo;
     jogo.executar();
 
     return 0;

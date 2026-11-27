@@ -2,26 +2,32 @@
 #define PROJETIL_H
 
 #include "entidade.h"
+#include "jogador.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
+
+namespace Pesonagens{
+class Jogador;
+}
 
 class Projetil : public Entidade {
 private:
     bool ativo;
-    float tempo;
-    float gravidade;
+    bool associado;
 
 public:
     Projetil(float x, float y, float velX, float velY);
     virtual ~Projetil();
 
-    void setTempo(float tempo);
     bool estaAtivo() const;
     void desativar();
+    bool estaAssociado() const;
+    void setAsssociado(bool associado);
 
     void executar();
     void salvar();
+    void danificar(Personagens::Jogador* pJ);
 };
 
 }

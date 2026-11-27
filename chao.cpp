@@ -1,17 +1,26 @@
 #include "chao.h"
 
-namespace TrabalhoJogo{
+namespace TheLastKnights{
 namespace Entidades{
 
-Chao::Chao(float x, float y, float largura, float altura)
-: Entidade(x, y) {
+Chao::Chao(float x, float y, float largura, float altura): Entidade(x, y),
+largura(largura), altura(altura) {
 }
 
-Chao::~Chao() {
+Chao::~Chao(){
+}
+
+
+float Chao::getLargura(){
+    return largura;
+}
+
+float Chao::getAltura(){
+    return altura;
 }
 
 void Chao::executar() {
-    // O chao e fixo: nao precisa atualizar sua posicao.
+    
 }
 
 void Chao::salvar() {

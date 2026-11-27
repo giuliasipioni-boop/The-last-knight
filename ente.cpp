@@ -1,7 +1,7 @@
 #include "ente.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 
 Gerenciadores::Gerenciador_grafico* Ente::pGG=nullptr;
 int Ente::proxID = 0;
@@ -26,7 +26,7 @@ void Ente::desenhar(){
 
 void Ente::setTextura(const sf::Texture& textura){
     
-    figura.setTexture(textura);
+    figura.setTexture(textura, true);
 }
 
 const sf::Drawable& Ente::getFigura() const{

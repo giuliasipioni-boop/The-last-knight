@@ -1,5 +1,5 @@
 #include "obstaculo.h"
-namespace TrabalhoJogo{
+namespace TheLastKnights{
 namespace Entidades{
 namespace Obstaculos{
 

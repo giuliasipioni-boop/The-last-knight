@@ -4,7 +4,7 @@
 #include "obstaculo.h"
 #include "personagem.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 
 namespace Personagens{
@@ -15,7 +15,7 @@ namespace Obstaculos {
 
 class Barril : public Obstaculo {
 private:
-    int tamanho;
+    float tamanho;
     
 public:
     Barril(float x, float y);

@@ -5,7 +5,7 @@
 #include "listaEntidades.h"
 #include "gerenciador_colisoes.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases{
 
 class Fase : public Ente{
@@ -45,7 +45,6 @@ public:
     float getPontos();
     bool vitoria();
 
-    
     virtual void executar() = 0;
 
 };

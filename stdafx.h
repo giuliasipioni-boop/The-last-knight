@@ -13,6 +13,13 @@
 #include <map>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
+#include <sstream>
+#include <algorithm>
+#include <utility>
+#include <iomanip>
+#include <cmath>
+
 
 #endif
 

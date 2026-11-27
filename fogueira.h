@@ -2,8 +2,10 @@
 #define _FOGUEIRA_H_
 
 #include "obstaculo.h"
+#include "personagem.h"
 
-namespace TrabalhoJogo {
+
+namespace TheLastKnights {
 namespace Entidades {
 namespace Obstaculos {
 
@@ -15,7 +17,7 @@ public:
     void executar();
     void salvar();
 
-    void obstaculizar(Personagens::Jogador* pJ);
+    void obstaculizar(Personagens::Personagem* pP);
 };
 
 }

@@ -3,8 +3,9 @@
 
 #include "inimigo.h"
 #include "jogador.h"
+#include "projetil.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
@@ -13,6 +14,9 @@ class Jogador;
 class Rei : public Inimigo {
 private:
     int direcao;
+    bool lancouProjetil;
+    Projetil* pProj;
+    float tempoLancamento;
 
 public:
     //construtora e destrutora
@@ -21,7 +25,10 @@ public:
 
     void mover();
     void inverterDirecao();
+    
+    Projetil* getProjetil();
     void lancarProjetil();
+    
     void executar();
     void danificar(Jogador* pJog);
     void salvar();

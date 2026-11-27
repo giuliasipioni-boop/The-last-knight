@@ -1,7 +1,7 @@
 #include "entidade.h"
 #include "ente.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 
 Entidade::Entidade(float x, float y) : Ente(), x(x), y(y), velX(0.0), velY(0.0),tempo(0.0), gravidade(900.0), noAr(true){
@@ -25,19 +25,19 @@ void Entidade::setVelocidade(float velX, float velY){
     this->velY = velY;
 }
 
-int Entidade::getPosicaoX(){
+float Entidade::getPosicaoX(){
     return x;
 }
 
-int Entidade::getPosicaoY(){
+float Entidade::getPosicaoY(){
     return y;
 }
 
-int Entidade::getVelocidadeX(){
+float Entidade::getVelocidadeX(){
     return velX;
 }
 
-int Entidade::getVelocidadeY(){
+float Entidade::getVelocidadeY(){
     return velY;
 }
 

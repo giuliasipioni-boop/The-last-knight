@@ -1,13 +1,11 @@
 #include "mago.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
 Mago::Mago(float x, float y): Inimigo(x, y, 2, 2), direcao(-1){
-    velX = -80.0;
-
     if (pGG != 0) {
         pGG->aplicarTextura(this, "mago");
     }
@@ -24,10 +22,10 @@ void Mago::mover() {
 
     if (alvo != 0) {
 
-        if (alvo->getPosicaoX() > x) {
+        if (alvo->getPosicaoX() > x + 20.0) {
             direcao = 1;
         }
-        else if (alvo->getPosicaoX() < x) {
+        else if (alvo->getPosicaoX() < x - 20.0) {
             direcao = -1;
         }
         else {
@@ -39,8 +37,7 @@ void Mago::mover() {
         direcao = 0;
     }
     
-    velX = 80.0 * direcao;
-    
+    velX *= direcao;
     
     if (velX < 0.0) {
         virar(false);
@@ -58,7 +55,8 @@ void Mago::inverterDirecao() {
 }
 
 void Mago::executar() {
-    if (!morto()) {
+    if (!morto()){
+        velX = 80.0;
         mover();
 
     }

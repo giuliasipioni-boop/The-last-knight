@@ -2,12 +2,11 @@
 #include "jogador.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
-Rei::Rei(float x, float y): Inimigo(x, y, 3, 3), direcao(1) {
-    velX = -65.0;
+Rei::Rei(float x, float y): Inimigo(x, y, 3, 3), direcao(1), lancouProjetil(false), tempoLancamento(-1.0) {
 
     if (pGG != 0) {
         pGG->aplicarTextura(this, "rei");
@@ -40,15 +39,14 @@ void Rei::mover() {
         direcao = 0;
     }
     
+    velX *=direcao;
+    
     if (velX < 0.0) {
         virar(false);
     }
     else if (velX > 0.0) {
         virar(true);
     }
-
-
-    velX = 60.0 * direcao;
 
     aplicarFisica();
 }
@@ -57,13 +55,42 @@ void Rei::inverterDirecao() {
     direcao *= -1;
 }
 
+Projetil* Rei::getProjetil() {
+    return pProj;
+}
+
 void Rei::lancarProjetil() {
-    
+
+    if (!lancouProjetil) {
+
+        sf::Vector2f vetorX(350.0 * direcao, 0.0);
+        sf::Vector2f vetorY(0.0, -500.0);
+
+        // Soma vetorial
+        sf::Vector2f resultante = vetorX + vetorY;
+
+        pProj = new Projetil(x, y, resultante.x, resultante.y);
+
+        lancouProjetil = true;
+    }
 }
 
 void Rei::executar(){
     if (!morto()) {
+        velX = 60.0;
         mover();
+        
+        if (!lancouProjetil) {
+            if (tempoLancamento == -1.0) {
+                tempoLancamento = 3 + rand() % 8;
+            }
+            
+            tempoLancamento -= tempo;
+            
+            if (tempoLancamento <= 0.0) {
+                lancarProjetil();
+            }
+        }
     }
 }
 

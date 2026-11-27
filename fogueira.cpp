@@ -2,13 +2,11 @@
 #include "gerenciador_grafico.h"
 #include "jogador.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Obstaculos {
 
-Fogueira::Fogueira(float x, float y)
-    : Obstaculo(x, y, true) {
-
+Fogueira::Fogueira(float x, float y): Obstaculo(x, y, true) {
     if (pGG != nullptr) {
         pGG->aplicarTextura(this, "fogueira");
     }
@@ -17,18 +15,31 @@ Fogueira::Fogueira(float x, float y)
 Fogueira::~Fogueira() {
 }
 
-void Fogueira::executar() {
-    desenhar();
+void Fogueira::executar(){
+    aplicarFisica();
+    if (rand() % 10000000 == 1){
+        danoso = false;
+    }
 }
 
 void Fogueira::salvar() {
     // Implementar junto ao sistema de salvamento do jogo.
 }
 
-void Fogueira::obstaculizar(Personagens::Jogador* pJ) {
-    if (pJ == nullptr || pJ->morto()) return;
+void Fogueira::obstaculizar(Personagens::Personagem* pP) {
 
-    pJ->Dano();
+    if (pP != nullptr && !pP->morto()) {
+
+        pP->setVelocidade(0.0, pP->getVelocidadeY());
+
+        if (ehDanoso()) {
+            Personagens::Jogador* pJ = dynamic_cast<Personagens::Jogador*>(pP);
+
+            if (pJ != nullptr) {
+                pJ->Dano();
+            }
+        }
+    }
 }
 
 }

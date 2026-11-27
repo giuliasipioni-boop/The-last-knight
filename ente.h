@@ -2,14 +2,14 @@
 #define _ENTE_H_
 #include "stdafx.h"
 
-namespace TrabalhoJogo{
+namespace TheLastKnights{
 namespace Gerenciadores {
 class Gerenciador_grafico;
 }
 }
 
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 
 class Ente{
 protected:

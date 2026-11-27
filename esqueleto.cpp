@@ -1,12 +1,11 @@
 #include "esqueleto.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
 Esqueleto::Esqueleto(float x, float y): Inimigo(x, y, 1, 1), direcao(-1) {
-    velX = -60.0;
 
     if (pGG != 0) {
         pGG->aplicarTextura(this, "esqueleto");
@@ -21,8 +20,7 @@ Esqueleto::~Esqueleto() {
 
 void Esqueleto::mover() {
 
-    velX = 60.0 * direcao;
-
+    velX *= direcao;
     aplicarFisica();
 
 }
@@ -34,6 +32,7 @@ void Esqueleto::inverterDirecao() {
 
 void Esqueleto::executar(){
     if (!morto()) {
+        velX = 60.0;
         mover();
     }
 }
@@ -46,10 +45,13 @@ void Esqueleto::danificar(Jogador* pJog){
     }
 }
 
-void Esqueleto::salvar(){
-    //fazer salvamento dps
+void Esqueleto::salvar(){/*
+    arquivo << id << " Esqueletos " << getVida()
+            << " " << getPosicaoX()
+            << " " << getPosicaoY()
+            << " " << getVelocidadeX()
+            << "\n";*/
 }
-
 
 }
 }

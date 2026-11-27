@@ -1,11 +1,11 @@
 #include "jogador.h"
 #include "gerenciador_grafico.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Entidades {
 namespace Personagens {
 
-Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),direcao(1),atacando(false), ladoAtaque(direcao){
+Jogador::Jogador(float x, float y, int num) : Personagem(x, y, 5), nJog(num),direcao(0),atacando(false), ladoAtaque(direcao){
     
     if (pGG != 0) {
         if (nJog == 1) {
@@ -47,10 +47,9 @@ int Jogador::getLadoAtaque() const {
     return ladoAtaque;
 }
 
-void Jogador::mover() {
+void Jogador::mover(){
     aplicarFisica();
 }
-
 
 void Jogador::executar() {
     if (!morto()) {

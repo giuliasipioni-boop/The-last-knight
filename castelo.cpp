@@ -1,8 +1,10 @@
 #include "castelo.h"
 #include "rei.h"
+#include "projetil.h"
+#include "fogueira.h"
 #include "stdafx.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases {
 
 Castelo::Castelo(): Fase(),MaxReis(5){
@@ -25,12 +27,14 @@ void Castelo::criarReis() {
     int quantidade = 3 + rand() % (MaxReis - 2);
     
     const float posicoes[6][2] = {
-        {850.0, 400.0},
-        {900.0, 400.0},
-        {950.0, 400.0},
-        {990.0, 400.0},
-        {1080.0, 400.0},
-        {1110.0, 300.0}
+
+        {620.0, 450.0},
+        {690.0, 30.0},   // Plataforma 3
+        {1180.0, 450.0},
+        {490.0, 80.0},   // Plataforma 2
+        {850.0, 450.0},
+        {380.0, 450.0}
+
     };
     
     for (int i = 0; i < quantidade; i++) {
@@ -46,6 +50,32 @@ void Castelo::criarReis() {
     }
 }
 
+void Castelo::criarProjeteis() {
+
+    const int tamanho = lista_ents.getTamanho();
+
+    for (int i = 0; i < tamanho; i++) {
+
+        Entidades::Personagens::Rei* pR = dynamic_cast<Entidades::Personagens::Rei*>(lista_ents[i]);
+
+        if (pR != nullptr) {
+
+            Entidades::Projetil* pProj = pR->getProjetil();
+
+            if (pProj != nullptr && !pProj->estaAssociado()) {
+
+                pProj->setEscala(0.04);
+
+                adicionarEntidade(pProj);
+                GC.incluirProjetil(pProj);
+
+                pProj->setAsssociado(true);
+            }
+        }
+    }
+}
+
+
 void Castelo::criarObstaculos() {
     
     criarPlataformas();
@@ -58,30 +88,32 @@ void Castelo::criarFogueiras() {
     int quantidade = 3 + rand() % 3;
     
     const float posicoes[5][2] = {
-        {250.0, 550.0},   // Fogueira 1
-        {600.0, 550.0},   // Fogueira 2
-        {950.0, 550.0},   // Fogueira 3
-        {400.0, 550.0},   // Fogueira 4
-        {800.0, 550.0}    // Fogueira 5
+
+        {450.0, 550.0},   // Fogueira 1
+        {730.0, 550.0},   // Fogueira 2
+        {1000.0, 550.0},  // Fogueira 3
+        {580.0, 550.0},   // Fogueira 4
+        {1150.0, 550.0}   // Fogueira 5
+
     };
     
     for (int i = 0; i < quantidade; i++) {
         
-        float x = posicoes[i][0];
-        float y = posicoes[i][1];
+            Entidades::Obstaculos::Fogueira* pF = new Entidades::Obstaculos::Fogueira(posicoes[i][0], posicoes[i][1]);
+            
+            pF->setEscala(0.25);
+            adicionarEntidade(pF);
+            GC.incluirObstaculo(pF);
         
-        // Criar Fogueira em (x, y)
-        // Adicionar a lista_ents
-        // Registrar no GC
-        
-        (void)x;
-        (void)y;
     }
 }
+
+
 
 void Castelo::executar() {
     
     lista_ents.executar();
+    criarProjeteis();
     GC.executar();
 }
 

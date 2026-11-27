@@ -1,7 +1,7 @@
 #include "gerenciador_eventos.h"
 #include "jogador.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Gerenciadores {
 
 Gerenciador_eventos::Gerenciador_eventos(sf::RenderWindow* janela, Entidades::Personagens::Jogador* jog1, Entidades::Personagens::Jogador* jog2) : pJanela(janela), pJogador1(jog1),pJogador2(jog2) {
@@ -39,6 +39,17 @@ void Gerenciador_eventos::executar() {
 
 
 void Gerenciador_eventos::verificarTeclasPressionada(sf::Keyboard::Key tecla) {
+    
+    
+    if (tecla == sf::Keyboard::Escape) {
+        pausado = !pausado;
+        return;
+    }
+
+    if (pausado) {
+        return;
+    }
+
     // Jogador 1
 
     if (pJogador1 != 0 && !pJogador1->morto()) {
@@ -132,6 +143,12 @@ void Gerenciador_eventos::verificarTeclaSolta(sf::Keyboard::Key tecla) {
         }
     }
 }
+
+
+bool Gerenciador_eventos::estaPausado() const {
+    return pausado;
+}
+
 
 
 }

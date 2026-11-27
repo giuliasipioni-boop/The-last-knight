@@ -3,7 +3,7 @@
 #include "barril.h"
 #include "stdafx.h"
 
-namespace TrabalhoJogo {
+namespace TheLastKnights {
 namespace Fases {
 
 Masmorra::Masmorra(): Fase(),MaxMagos(6) {
@@ -26,12 +26,14 @@ void Masmorra::criarMagos() {
     int quantidade = 3 + rand() % (MaxMagos - 2);
     
     const float posicoes[6][2] = {
-        {500.0, 400.0},
-        {700.0, 400.0},
-        {1100.0, 400.0},
-        {500.0, 300.0},
-        {700.0, 300.0},
-        {1100.0, 300.0}
+
+        {620.0, 450.0},
+        {690.0, 30.0},   // Plataforma 3
+        {1180.0, 450.0},
+        {490.0, 80.0},   // Plataforma 2
+        {850.0, 450.0},
+        {380.0, 450.0}
+
     };
     
     for (int i = 0; i < quantidade; i++) {
@@ -59,27 +61,23 @@ void Masmorra::criarBarril() {
     int quantidade = 3 + rand() % 3;
     
     const float posicoes[5][2] = {
-        {300.f, 550.f},   // Barril 1
-        {600.f, 550.f},   // Barril 2
-        {950.f, 550.f},   // Barril 3
-        {400.f, 550.f},   // Barril 4
-        {800.f, 550.f}    // Barril 5
+
+        {430.0, 550.0},   // Barril 1
+        {750.0, 550.0},   // Barril 2
+        {1110.0, 550.0},  // Barril 3
+        {600.0, 550.0},   // Barril 4
+        {930.0, 550.0}    // Barril 5
+
     };
     
     for (int i = 0; i < quantidade; i++) {
         
-        float x = posicoes[i][0];
-        float y = posicoes[i][1];
-        
-        for (int i = 0; i < quantidade; i++) {
-            
             Entidades::Obstaculos::Barril* pB = new Entidades::Obstaculos::Barril(posicoes[i][0], posicoes[i][1]);
             
             pB->setEscala(0.25);
             adicionarEntidade(pB);
             GC.incluirObstaculo(pB);
             
-        }
     }
 }
 
