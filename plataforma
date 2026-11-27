@@ -1,0 +1,52 @@
+#include "plataforma.h"
+#include "gerenciador_grafico.h"
+#include "jogador.h"
+
+namespace TrabalhoJogo {
+namespace Entidades {
+namespace Obstaculos {
+
+Plataforma::Plataforma(float x, float y)
+    : Obstaculo(x, y, false) {
+
+    if (pGG != nullptr) {
+        pGG->aplicarTextura(this, "plataforma");
+    }
+}
+
+Plataforma::~Plataforma() {
+}
+
+void Plataforma::executar() {
+    desenhar();
+}
+
+void Plataforma::salvar() {
+    // Implementar junto ao sistema de salvamento do jogo.
+}
+
+void Plataforma::obstaculizar(Personagens::Jogador* pJ) {
+    if (pJ == nullptr || pJ->morto()) return;
+
+    sf::FloatRect plataforma =
+        static_cast<const sf::Sprite&>(getFigura()).getGlobalBounds();
+
+    sf::FloatRect jogador =
+        static_cast<const sf::Sprite&>(pJ->getFigura()).getGlobalBounds();
+
+    float fundoJogador = jogador.top + jogador.height;
+
+    if (pJ->getVelocidadeY() >= 0.0f &&
+        pJ->getYAnterior() + jogador.height <= plataforma.top + 5.0f) {
+
+        if (fundoJogador >= plataforma.top) {
+            pJ->pousar(
+                pJ->getPosicaoY() + plataforma.top - fundoJogador
+            );
+        }
+    }
+}
+
+}
+}
+}
